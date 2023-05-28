@@ -1,6 +1,3 @@
-import { type } from "os";
-import { title } from "process";
-
 const project = {
   name: "post",
   title: "Post",
@@ -40,12 +37,23 @@ const project = {
       title: "Author",
       type: "string",
     },
-
     {
       name: "post",
       title: "Blog Post",
       type: "array",
-      of: [{ type: "block" }],
+      of: [
+        { type: "block" },
+        {
+          type: "image",
+          fields: [
+            {
+              name: "alt",
+              title: "Alt",
+              type: "string",
+            },
+          ],
+        },
+      ],
     },
     {
       name: "summary",

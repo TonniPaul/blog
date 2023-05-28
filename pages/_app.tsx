@@ -6,9 +6,8 @@ import type { AppProps } from "next/app";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <GlobalStyles />
       <main className={play.className}>
-        <Navbar />
+        <GlobalStyles />
         <Component {...pageProps} />
       </main>
     </>
