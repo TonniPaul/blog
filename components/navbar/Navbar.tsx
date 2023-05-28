@@ -3,9 +3,11 @@ import { CloseButton, NavStyle } from "./navbar.style";
 import Logo from "../logo/Logo";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const router = useRouter();
 
   // disable scrolling if mobile nav is opened
   useEffect(() => {
@@ -24,10 +26,18 @@ const Navbar = () => {
       <Logo />
 
       <ul>
-        <li>HOME</li>
-        <li>HOME</li>
-        <li>HOME</li>
-        <li>HOME</li>
+        <li>
+          <Link
+            href={"/"}
+            className={router.pathname === "/blog" || "/" ? "active" : ""}
+          >
+            BLOG
+          </Link>
+        </li>
+        <li>
+          <a href="https://tonnipaul.com/#contact">CONTACT</a>
+        </li>
+
         <CloseButton>
           <Logo />
           <Image

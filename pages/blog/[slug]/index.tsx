@@ -18,6 +18,16 @@ interface Props {
 
 const BlogPost = ({ post }: any) => {
   const router = useRouter();
+
+  const formattedDate = new Date(post.date_created).toLocaleDateString(
+    "en-US",
+    {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    }
+  );
+
   return (
     <Layout title={post.title} description={post.summary}>
       <BlogPostContainer>
@@ -35,7 +45,8 @@ const BlogPost = ({ post }: any) => {
           <Image src={post.image} alt={post.title} fill />
         </BlogImageContainer>
         <PublishDetailsContainer>
-          <p> Publish Date: {post.date_created}</p>
+          <p> Publish Date: {formattedDate}</p>{" "}
+          {/* Display the formatted date */}
           <p>Author: {post.author} </p>
         </PublishDetailsContainer>
         <PortableTextContainer>

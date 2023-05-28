@@ -5,7 +5,7 @@ export interface Posts {
   _createdAt: string;
   title: string;
   slug: string;
-  date_created: string;
+  date_created: Date;
   author: string;
   post: PortableTextBlock[];
   image: string;

@@ -74,10 +74,19 @@ export const NavStyle = styled.nav<NavLinkStyleProp>`
 
     & li {
       box-shadow: var(--box-shadow);
-      padding: 0.5rem 1rem;
+      padding: 0.5rem;
       border-radius: 8px;
       cursor: pointer;
       background-color: var(--primary-bg);
+
+      & .active {
+        box-shadow: var(--inset-box);
+      }
+
+      & a {
+        border-radius: 10px 30px 10px 30px;
+        padding: 0.5rem 1rem;
+      }
 
       @media (max-width: 900px) {
         margin: 1rem;

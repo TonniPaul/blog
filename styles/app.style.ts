@@ -5,14 +5,14 @@ const GlobalStyles = createGlobalStyle`
   :root {
    --primary-bg: #e0e0e0;
    --purple: #7d44a8;
-   --alt-text: #76B0EF;
+   --sky-blue: #76B0EF;
    --box-shadow: 5px 5px 10px #b5b5b5, -2px -2px 10px #fff;
    --inset-box: inset 5px 10px 8px #b5b5b5, inset -5px -5px 8px #fff;
    --transition: .5s ease-in-out;
-   --black: #636363;
+   --grey: #667085;
    --purple-box-shadow: 1px 1px 10px #301645, -1px -1px 10px #7e45aa;
    --purple-inset-box: inset 1px 1px 10px #44255c, inset -1px -1px 10px #7e45aa;
-   --white: #e4d8d8;
+   --white: #ffffff;
    --max-width : 1200px;
 }
 

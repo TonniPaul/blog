@@ -31,6 +31,11 @@ const project = {
       name: "date_created",
       title: "Publish Date",
       type: "date",
+      options: {
+        dateFormat: "MMMM D, YYYY",
+        calendarTodayLabel: "Today",
+      },
+      initialValue: "2023-06-01",
     },
     {
       name: "author",

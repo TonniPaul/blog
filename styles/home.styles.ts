@@ -7,11 +7,12 @@ export const Container = styled.div`
 
   & h3 {
     font-size: 18px;
+    padding: 2rem 0;
+    width: 700px;
+    margin: auto;
 
     @media (min-width: 900px) {
       font-size: 20px;
-      text-align: center;
-      padding: 2rem;
     }
   }
 `;
