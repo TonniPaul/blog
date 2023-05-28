@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const GoBackBtn = styled.button`
   padding: 0.5rem 1rem;
+  margin-left: 2rem;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -10,28 +11,33 @@ export const GoBackBtn = styled.button`
   appearance: none;
   -webkit-appearance: none;
   color: var(--purple);
+
+  @media (min-width: 700px) {
+    margin: 2rem 0;
+  }
 `;
 
 export const BlogPostContainer = styled.div`
   max-width: var(--max-width);
   max-width: 700px;
   margin: auto;
-  padding: 2rem;
-
-  & > h1 {
-    font-size: 18px;
-    text-align: center;
-    padding: 1rem 0;
-
-    @media (min-width: 700px) {
-      text-align: left;
-      font-size: 20px;
-    }
-  }
+  padding: 2rem 0;
 
   & > img {
     display: flex;
     justify-content: center!;
+  }
+`;
+
+export const TitleText = styled.div`
+  font-size: 18px;
+  text-align: center;
+  padding: 1rem;
+
+  @media (min-width: 700px) {
+    padding: 2rem;
+    text-align: left;
+    font-size: 20px;
   }
 `;
 
@@ -46,13 +52,26 @@ export const BlogImageContainer = styled.div`
 `;
 
 export const PublishDetailsContainer = styled.div`
-  & > p {
-    font-weight: 600;
-    padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+  padding-bottom: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  & > p:nth-of-type(1) {
+    color: var(--grey);
   }
 `;
 
 export const PortableTextContainer = styled.div`
+  padding: 1rem;
+
+  @media (min-width: 700px) {
+    padding: 0;
+  }
+
   & h1,
   & h2,
   & h3,
@@ -63,8 +82,7 @@ export const PortableTextContainer = styled.div`
   }
 
   & code {
-    background: var(--purple);
-    color: var(--white);
+    background: var(--white);
   }
 
   & ol,

@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const HeroContainer = styled.section`
-  color: var(--purple);
-  padding: 3rem 2rem;
+  padding: 3rem 2rem 0;
   text-align: center;
   max-width: 700px;
   margin: auto;

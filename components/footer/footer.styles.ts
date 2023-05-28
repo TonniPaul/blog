@@ -5,6 +5,7 @@ export const FooterStyle = styled.footer`
   padding: 1rem;
   text-align: center;
   color: var(--purple);
+  border-top: 1px solid var(--white);
 
   & p {
     text-transform: capitalize;

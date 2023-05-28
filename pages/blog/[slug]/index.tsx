@@ -1,4 +1,6 @@
+import { ClipArt } from "@/components/hero/hero.style";
 import Layout from "@/components/layout/Layout";
+import { dateFormat } from "@/helpers/dateFormat";
 import { Posts } from "@/interface/postInterface";
 import { getPost } from "@/sanity/sanity-utils";
 import {
@@ -7,6 +9,7 @@ import {
   GoBackBtn,
   PortableTextContainer,
   PublishDetailsContainer,
+  TitleText,
 } from "@/styles/blogPost.style";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
@@ -19,18 +22,23 @@ interface Props {
 const BlogPost = ({ post }: any) => {
   const router = useRouter();
 
-  const formattedDate = new Date(post.date_created).toLocaleDateString(
-    "en-US",
-    {
-      month: "long",
-      day: "numeric",
-      year: "numeric",
-    }
-  );
-
   return (
     <Layout title={post.title} description={post.summary}>
       <BlogPostContainer>
+        <TitleText>
+          <ClipArt>{post.title}</ClipArt>
+        </TitleText>
+        <PublishDetailsContainer>
+          <p> {dateFormat(post.date_created)}</p>-<p>{post.author} </p>
+        </PublishDetailsContainer>
+        <BlogImageContainer>
+          <Image src={post.image} alt={post.title} fill />
+        </BlogImageContainer>
+
+        <PortableTextContainer>
+          <PortableText value={post.post} />
+        </PortableTextContainer>
+
         <GoBackBtn onClick={() => router.back()}>
           <Image
             src={"/assets/back-icon.png"}
@@ -40,18 +48,6 @@ const BlogPost = ({ post }: any) => {
           />
           Go Back
         </GoBackBtn>
-        <h1>{post.title}</h1>
-        <BlogImageContainer>
-          <Image src={post.image} alt={post.title} fill />
-        </BlogImageContainer>
-        <PublishDetailsContainer>
-          <p> Publish Date: {formattedDate}</p>{" "}
-          {/* Display the formatted date */}
-          <p>Author: {post.author} </p>
-        </PublishDetailsContainer>
-        <PortableTextContainer>
-          <PortableText value={post.post} />
-        </PortableTextContainer>
       </BlogPostContainer>
     </Layout>
   );

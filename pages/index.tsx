@@ -1,6 +1,7 @@
 import PostCard from "@/components/cards/postCard/PostCard";
 import Hero from "@/components/hero/Hero";
 import Layout from "@/components/layout/Layout";
+import { dateFormat } from "@/helpers/dateFormat";
 import { MyPosts, Posts } from "@/interface/postInterface";
 import { getPosts } from "@/sanity/sanity-utils";
 import { Container, FlexContainer } from "@/styles/home.styles";
@@ -9,15 +10,6 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Home({ posts }: MyPosts) {
-
-  const formattedDate = new Date(posts[0].date_created).toLocaleDateString(
-    "en-US",
-    {
-      month: "long",
-      day: "numeric",
-      year: "numeric",
-    }
-  );
   return (
     <Layout>
       <Hero />
@@ -34,7 +26,7 @@ export default function Home({ posts }: MyPosts) {
                 slug={post.slug}
                 image={post.image}
                 title={post.title}
-                date={formattedDate}
+                date={dateFormat(post.date_created)}
                 summary={post.summary}
               />
             );

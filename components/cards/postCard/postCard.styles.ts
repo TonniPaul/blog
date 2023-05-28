@@ -66,7 +66,6 @@ export const PostCardSummary = styled.p`
   }
 
   & span:last-child {
-    color: var(--purple) !important;
     float: right;
   }
 

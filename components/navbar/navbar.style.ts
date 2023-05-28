@@ -74,10 +74,11 @@ export const NavStyle = styled.nav<NavLinkStyleProp>`
 
     & li {
       box-shadow: var(--box-shadow);
+      width: max-content;
       padding: 0.5rem;
       border-radius: 8px;
       cursor: pointer;
-      background-color: var(--primary-bg);
+      transition: 0.5s ease-in-out;
 
       & .active {
         box-shadow: var(--inset-box);
@@ -86,6 +87,12 @@ export const NavStyle = styled.nav<NavLinkStyleProp>`
       & a {
         border-radius: 10px 30px 10px 30px;
         padding: 0.5rem 1rem;
+        width: 100%;
+
+        &:hover {
+          border-radius: 10px 30px 10px 30px;
+          box-shadow: var(--inset-box);
+        }
       }
 
       @media (max-width: 900px) {
@@ -105,7 +112,7 @@ export const NavStyle = styled.nav<NavLinkStyleProp>`
 
 export const CloseButton = styled.li`
   position: fixed;
-  width: 100%;
+  width: 100% !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
