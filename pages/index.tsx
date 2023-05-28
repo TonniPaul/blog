@@ -37,6 +37,8 @@ export default function Home({ posts }: MyPosts) {
   );
 }
 
+export const revalidate = 2;
+
 export async function getServerSideProps() {
   const posts: Posts[] = await getPosts();
 

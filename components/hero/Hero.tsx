@@ -1,9 +1,16 @@
-import { ClipArt, HeroContainer, TransparentBg } from "./hero.style";
+import TimeAndDate from "../timeAndDate/TimeAndDate";
+import {
+  ClipArt,
+  HeroContainer,
+  TransparentBg,
+  WelcomeText,
+} from "./hero.style";
 
 const Hero = () => {
   return (
     <HeroContainer>
-      <p>Welcome To:</p>
+      <TimeAndDate />
+      <WelcomeText>Welcome To:</WelcomeText>
       <TransparentBg>
         <ClipArt>{`TonniPaul's Blog`}</ClipArt>
       </TransparentBg>

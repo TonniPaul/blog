@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { CloseButton, NavStyle } from "./navbar.style";
 import Logo from "../logo/Logo";
