@@ -16,7 +16,7 @@ const BlogPage = ({ posts }: MyPosts) => {
   return (
     <Layout>
       <Container>
-        <h3>All Articles</h3>
+        <h3>WEB TECHNOLOGIES</h3>
         <FlexContainer>
           {posts.map((post, index) => {
             return (
