@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+export const GoBackBtn = styled.button`
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--box-shadow);
+  border-radius: 8px;
+`;
+
 export const BlogPostContainer = styled.div`
   max-width: var(--max-width);
   max-width: 700px;
