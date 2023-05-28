@@ -7,6 +7,9 @@ export const GoBackBtn = styled.button`
   gap: 10px;
   box-shadow: var(--box-shadow);
   border-radius: 8px;
+  appearance: none;
+  -webkit-appearance: none;
+  color: var(--purple);
 `;
 
 export const BlogPostContainer = styled.div`
