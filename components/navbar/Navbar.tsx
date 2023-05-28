@@ -43,8 +43,8 @@ const Navbar = () => {
       <Image
         src={"/assets/menu.png"}
         alt="nav-menu"
-        width={20}
-        height={20}
+        width={25}
+        height={25}
         onClick={handleClick}
       />
     </NavStyle>
