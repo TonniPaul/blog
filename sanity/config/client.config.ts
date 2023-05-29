@@ -1,9 +1,9 @@
 const clientConfig = {
-  projectId: "8vq19kgu",
+  projectId: process.env.SANITY_PRODUCT_ID,
 
-  dataset: "production",
+  dataset: process.env.SANITY_DATASET,
 
-  apiVersion: "2023-05-26",
+  apiVersion: process.env.SANITY_API_VERSION,
 };
 
 export default clientConfig;
