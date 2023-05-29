@@ -10,7 +10,7 @@ export const PostCardContainer = styled.div`
   border-radius: 8px;
 
   &:hover {
-    transform: scale(1.01);
+    transform: scale(0.95);
   }
 
   @media (min-width: 768px) {
