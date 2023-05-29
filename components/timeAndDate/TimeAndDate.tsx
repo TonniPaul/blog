@@ -1,24 +1,26 @@
 import { useEffect, useState } from "react";
 import { TimeContainer } from "./time,style";
-import { Roboto_Mono } from "next/font/google";
+import { Cousine } from "next/font/google";
 
-const roboto_mono = Roboto_Mono({ subsets: ["latin"] });
+const roboto_mono = Cousine({ subsets: ["latin"], weight: "400" });
 
 const TimeAndDate = () => {
   const [currentTime, setCurrentTime] = useState<Date>(new Date());
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000);
+    if (typeof window !== "undefined") {
+      const timer = setInterval(() => {
+        setCurrentTime(new Date());
+      }, 1000);
 
-    return () => clearInterval(timer);
+      return () => clearInterval(timer);
+    }
   }, []);
 
   const getTimeOfDayGreeting = (currentHour: number): string => {
     let greeting = "";
 
-    if (currentHour >= 5 && currentHour < 12) {
+    if (currentHour >= 0 && currentHour < 12) {
       greeting = "Good Morning";
     } else if (currentHour >= 12 && currentHour < 18) {
       greeting = "Good Afternoon";
@@ -31,15 +33,14 @@ const TimeAndDate = () => {
 
   const currentHour = currentTime.getHours();
   const greeting = getTimeOfDayGreeting(currentHour);
-  const formattedDate = currentTime.toLocaleDateString(undefined, {
+  const formattedDate = currentTime.toLocaleDateString("en-US", {
     weekday: "long",
     month: "long",
     day: "numeric",
   });
-  const formattedTime = currentTime.toLocaleTimeString(undefined, {
+  const formattedTime = currentTime.toLocaleTimeString("en-US", {
     hour: "numeric",
     minute: "numeric",
-    second: "numeric",
   });
 
   return (

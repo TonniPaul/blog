@@ -5,7 +5,7 @@ export const TimeContainer = styled.div`
   width: max-content;
   text-align: right;
   font-size: 0.775rem;
-  right: 20px;
+  right: 2rem;
   top: 20px;
 
   & > p:nth-of-type(2) {

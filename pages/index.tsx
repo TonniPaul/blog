@@ -1,5 +1,3 @@
-"use client";
-
 import PostCard from "@/components/cards/postCard/PostCard";
 import Hero from "@/components/hero/Hero";
 import Layout from "@/components/layout/Layout";
