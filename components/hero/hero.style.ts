@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HeroContainer = styled.section`
-  padding: 4rem 2rem 0;
+  padding: 5rem 2rem 0;
   text-align: center;
   max-width: 700px;
   margin: auto;
@@ -9,14 +9,20 @@ export const HeroContainer = styled.section`
 `;
 
 export const TransparentBg = styled.div`
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(128, 0, 128, 0.1);
   width: max-content;
   padding: 0.5rem 1rem;
   margin: 1rem auto;
 `;
 
 export const ClipArt = styled.div`
-  background: linear-gradient(to right, #8b5cd6, #4ea4a7, #000, #7d44a8);
+  background: linear-gradient(
+    to right,
+    var(--purple),
+    var(--sky-blue),
+    var(--yellow),
+    var(--purple)
+  );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -30,4 +36,5 @@ export const ClipArt = styled.div`
 
 export const WelcomeText = styled.p`
   font-weight: 700;
+  color: var(--purple);
 `;

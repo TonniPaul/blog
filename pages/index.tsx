@@ -13,10 +13,10 @@ export default function Home({ posts }: MyPosts) {
       <Container>
         <h3>WEB TECHNOLOGIES</h3>
         <FlexContainer>
-          {posts.map((post, index) => {
+          {posts.map((post) => {
             return (
               <PostCard
-                key={index}
+                key={post._createdAt}
                 slug={post.slug}
                 image={post.image}
                 title={post.title}

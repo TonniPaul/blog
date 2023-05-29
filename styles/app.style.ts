@@ -6,6 +6,8 @@ const GlobalStyles = createGlobalStyle`
    --primary-bg: #e0e0e0;
    --purple: #7d44a8;
    --sky-blue: #76B0EF;
+   --yellow : #fabb37;
+   --black : #636363;
    --box-shadow: 5px 5px 10px #b5b5b5, -2px -2px 10px #fff;
    --inset-box: inset 5px 10px 8px #b5b5b5, inset -5px -5px 8px #fff;
    --transition: .5s ease-in-out;
@@ -28,6 +30,7 @@ const GlobalStyles = createGlobalStyle`
 body {
 background: var(--primary-bg);
 font-size: 0.875rem;
+color: var(--black);
 
   &::-webkit-scrollbar {
     width: 1px;

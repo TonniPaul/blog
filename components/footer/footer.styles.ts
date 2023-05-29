@@ -6,6 +6,7 @@ export const FooterStyle = styled.footer`
   text-align: center;
   color: var(--purple);
   border-top: 1px solid var(--white);
+  margin-top: 3rem;
 
   & p {
     text-transform: capitalize;

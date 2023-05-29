@@ -22,7 +22,7 @@ const TimeAndDate = () => {
 
     if (currentHour >= 0 && currentHour < 12) {
       greeting = "Good Morning";
-    } else if (currentHour >= 12 && currentHour < 18) {
+    } else if (currentHour >= 12 && currentHour < 17) {
       greeting = "Good Afternoon";
     } else {
       greeting = "Good Evening";

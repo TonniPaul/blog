@@ -1,9 +1,13 @@
 import Image from "next/image";
 import {
+  ContinueReading,
   PostCardContainer,
   PostCardImageContainer,
+  PostCardPostTextContainer,
   PostCardSummary,
+  ProductCardTitle,
 } from "./postCard.styles";
+import Link from "next/link";
 
 interface PostCardProps {
   slug: string;
@@ -15,18 +19,24 @@ interface PostCardProps {
 
 const PostCard = ({ slug, image, title, date, summary }: PostCardProps) => {
   return (
-    <PostCardContainer href={`/blog/${slug}`}>
-      <div>
-        <small> {date}</small>
-        <p> {title} </p>
-        <PostCardSummary>
-          <span>{summary}</span>
-          <span>continue reading.....</span>
-        </PostCardSummary>
-      </div>
+    <PostCardContainer>
       <PostCardImageContainer>
         <Image src={image} alt={title} fill />
       </PostCardImageContainer>
+      <PostCardPostTextContainer>
+        <small> {date}</small>
+        <ProductCardTitle> {title} </ProductCardTitle>
+        <PostCardSummary>{summary}</PostCardSummary>
+        <ContinueReading href={`/blog/${slug}`}>
+          continue reading
+          <Image
+            src={"/assets/back-icon.png"}
+            alt="forward-icon"
+            width={20}
+            height={20}
+          />
+        </ContinueReading>
+      </PostCardPostTextContainer>
     </PostCardContainer>
   );
 };

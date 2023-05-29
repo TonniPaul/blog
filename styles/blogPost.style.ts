@@ -36,7 +36,6 @@ export const TitleText = styled.div`
 
   @media (min-width: 700px) {
     padding: 2rem;
-    text-align: left;
     font-size: 20px;
   }
 `;
@@ -45,6 +44,7 @@ export const BlogImageContainer = styled.div`
   width: 100%;
   position: relative;
   height: 250px;
+  margin: 1rem 0;
 
   @media (min-width: 700px) {
     height: 400px;

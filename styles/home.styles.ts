@@ -3,13 +3,14 @@ import styled from "styled-components";
 export const Container = styled.div`
   max-width: var(--max-width);
   margin: auto;
-  padding: 2rem;
+  padding: 1rem;
 
   & h3 {
     font-size: 18px;
     padding: 2rem 0;
     width: 700px;
     margin: auto;
+    color: var(--sky-blue);
 
     @media (min-width: 900px) {
       font-size: 20px;
