@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const GoBackBtn = styled.button`
   padding: 0.5rem 1rem;
-  /* margin-left: 2rem; */
+  margin-left: 2rem;
   display: flex;
   align-items: center;
   gap: 10px;
