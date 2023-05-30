@@ -14,6 +14,14 @@ import {
   RichTextLinks,
   ULStyle,
 } from "./richText.style";
+import imageUrlBuilder from "@sanity/image-url";
+import clientConfig from "@/sanity/config/client.config";
+
+const builder = imageUrlBuilder({ clientConfig });
+
+function urlFor(source: string) {
+  return builder.image(source);
+}
 
 export const RichTextComponents = {
   types: {
@@ -22,7 +30,7 @@ export const RichTextComponents = {
       return (
         <RichTextImageContainer>
           <Image
-            src={imageUrl}
+            src={urlFor(value).url()}
             alt="Blog Post Image"
             width={isInline ? 200 : undefined}
             height={isInline ? 200 : undefined}
@@ -59,13 +67,13 @@ export const RichTextComponents = {
     h6: ({ children }: any) => {
       return <H6Style>{children}</H6Style>;
     },
-    blockquote: ({ children }: any) => {
-      return (
-        <BlockQuote>
-          <span>{`"`}</span> Hello there<div>{`"`}</div>
-        </BlockQuote>
-      );
-    },
+    // blockquote: ({ children }: any) => {
+    //   return (
+    //     <BlockQuote>
+    //       <span>{`"`}</span> Hello there<div>{`"`}</div>
+    //     </BlockQuote>
+    //   );
+    // },
   },
   marks: {
     link: ({ children, value }: any) => {

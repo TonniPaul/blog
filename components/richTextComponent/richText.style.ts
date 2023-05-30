@@ -2,9 +2,8 @@ import styled from "styled-components";
 
 export const RichTextImageContainer = styled.div`
   width: 90%;
-  margin: 0.5rem auto;
+  margin: 1rem auto 0.5rem;
   position: relative;
-  object-fit: contain;
   aspect-ratio: 4/4;
 `;
 
