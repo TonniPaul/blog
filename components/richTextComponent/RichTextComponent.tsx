@@ -67,13 +67,9 @@ export const RichTextComponents = {
     h6: ({ children }: any) => {
       return <H6Style>{children}</H6Style>;
     },
-    // blockquote: ({ children }: any) => {
-    //   return (
-    //     <BlockQuote>
-    //       <span>{`"`}</span> Hello there<div>{`"`}</div>
-    //     </BlockQuote>
-    //   );
-    // },
+    blockquote: ({ children }: any) => {
+      return <BlockQuote>{children}</BlockQuote>;
+    },
   },
   marks: {
     link: ({ children, value }: any) => {

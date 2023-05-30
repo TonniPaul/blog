@@ -44,15 +44,11 @@ export const H6Style = styled.h4`
   color: var(--yellow);
 `;
 export const BlockQuote = styled.blockquote`
-  background: var(--white);
+  background: var(--transparent-purple-bg);
   border-left: 2px solid var(--yellow);
-  padding: 0 1rem;
-  margin: 2rem;
+  padding: 1rem;
+  margin: 1rem;
   font-style: italic;
-
-  & > span {
-    display: block;
-  }
 `;
 
 export const ULStyle = styled.ul`
