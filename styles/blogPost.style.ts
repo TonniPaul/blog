@@ -65,32 +65,32 @@ export const PublishDetailsContainer = styled.div`
   }
 `;
 
-export const PortableTextContainer = styled.div`
-  padding: 1rem;
+// export const PortableTextContainer = styled.div`
+//   padding: 1rem;
 
-  @media (min-width: 700px) {
-    padding: 0;
-  }
+//   @media (min-width: 700px) {
+//     padding: 0;
+//   }
 
-  & h1,
-  & h2,
-  & h3,
-  & h3,
-  & h5,
-  & h6 {
-    padding: 1rem 0;
-  }
+//   & h1,
+//   & h2,
+//   & h3,
+//   & h3,
+//   & h5,
+//   & h6 {
+//     padding: 1rem 0;
+//   }
 
-  & code {
-    background: var(--white);
-  }
+//   & code {
+//     background: var(--white);
+//   }
 
-  & ol,
-  ul {
-    list-style-position: inside;
+//   & ol,
+//   ul {
+//     list-style-position: inside;
 
-    li {
-      padding: 0.5rem 0;
-    }
-  }
-`;
+//     li {
+//       padding: 0.5rem 0;
+//     }
+//   }
+// `;
