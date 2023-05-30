@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const GoBackBtn = styled.button`
   padding: 0.5rem 1rem;
-  margin-left: 2rem;
+  margin-left: 1rem;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -12,7 +12,7 @@ export const GoBackBtn = styled.button`
   -webkit-appearance: none;
   color: var(--purple);
 
-  @media (min-width: 700px) {
+  @media (min-width: 768px) {
     margin: 2rem 0;
   }
 `;
@@ -34,7 +34,7 @@ export const TitleText = styled.div`
   text-align: center;
   padding: 1rem;
 
-  @media (min-width: 700px) {
+  @media (min-width: 768px) {
     padding: 2rem;
     font-size: 20px;
   }
@@ -46,7 +46,7 @@ export const BlogImageContainer = styled.div`
   height: 250px;
   margin: 1rem 0;
 
-  @media (min-width: 700px) {
+  @media (min-width: 768px) {
     height: 400px;
   }
 `;
@@ -67,6 +67,6 @@ export const PublishDetailsContainer = styled.div`
 
 export const BlogBodyContainer = styled.div`
   @media (max-width: 768px) {
-    padding: 0 1.5rem;
+    padding: 0 1.5rem 1rem;
   }
 `;
