@@ -27,7 +27,7 @@ const PostCard = ({ slug, image, title, date, summary }: PostCardProps) => {
         <small> {date}</small>
         <ProductCardTitle> {title} </ProductCardTitle>
         <PostCardSummary>{summary}</PostCardSummary>
-        <ContinueReading href={`/blog/${slug}`}>
+        <ContinueReading href={`${slug}`}>
           continue reading
           <Image
             src={"/assets/back-icon.png"}
