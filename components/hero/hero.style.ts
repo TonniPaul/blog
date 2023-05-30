@@ -9,7 +9,7 @@ export const HeroContainer = styled.section`
 `;
 
 export const TransparentBg = styled.div`
-  background: rgba(128, 0, 128, 0.1);
+  background: var(--transparent-purple-bg);
   width: max-content;
   padding: 0.5rem 1rem;
   margin: 1rem auto;
