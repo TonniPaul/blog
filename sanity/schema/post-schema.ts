@@ -58,8 +58,26 @@ const project = {
             },
           ],
         },
+        {
+          type: "object",
+          name: "blockquote",
+          title: "Blockquote",
+          fields: [
+            {
+              name: "content",
+              title: "Content",
+              type: "string",
+            },
+            {
+              name: "citation",
+              title: "Citation",
+              type: "string",
+            },
+          ],
+        },
       ],
     },
+
     {
       name: "summary",
       title: "Summary",
