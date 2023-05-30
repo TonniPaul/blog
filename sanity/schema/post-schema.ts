@@ -7,18 +7,26 @@ const project = {
       name: "title",
       title: "Title",
       type: "string",
+      validation: (Rule: any) => [
+        Rule.required()
+          .min(10)
+          .error("A title of min. 10 characters is required"),
+        Rule.max(50).warning("Shorter titles are usually better"),
+      ],
     },
     {
       name: "slug",
       title: "Slug",
       type: "slug",
       options: { source: "title" },
+      validation: (Rule: any) => Rule.required(),
     },
     {
       name: "image",
       title: "Image",
       type: "image",
       options: { hotspot: true },
+      validation: (Rule: any) => Rule.required(),
       fields: [
         {
           name: "alt",
@@ -36,44 +44,23 @@ const project = {
         calendarTodayLabel: "Today",
       },
       initialValue: "2023-06-01",
+      validation: (Rule: any) => Rule.required(),
     },
     {
       name: "author",
       title: "Author",
       type: "string",
+      validation: (Rule: any) => Rule.required(),
     },
     {
       name: "post",
       title: "Blog Post",
       type: "array",
+      validation: (Rule: any) => Rule.required(),
       of: [
         { type: "block" },
         {
           type: "image",
-          fields: [
-            {
-              name: "alt",
-              title: "Alt",
-              type: "string",
-            },
-          ],
-        },
-        {
-          type: "object",
-          name: "blockquote",
-          title: "Blockquote",
-          fields: [
-            {
-              name: "content",
-              title: "Content",
-              type: "string",
-            },
-            {
-              name: "citation",
-              title: "Citation",
-              type: "string",
-            },
-          ],
         },
       ],
     },
@@ -82,6 +69,7 @@ const project = {
       name: "summary",
       title: "Summary",
       type: "string",
+      validation: (Rule: any) => Rule.required(),
     },
   ],
 };
