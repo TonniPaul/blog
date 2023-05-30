@@ -4,6 +4,7 @@ import { RichTextComponents } from "@/components/richTextComponent/RichTextCompo
 import { dateFormat } from "@/helpers/dateFormat";
 import { getPost, getPosts } from "@/sanity/sanity-utils";
 import {
+  BlogBodyContainer,
   BlogImageContainer,
   BlogPostContainer,
   GoBackBtn,
@@ -33,8 +34,9 @@ const BlogPost = ({ post }: any) => {
         <BlogImageContainer>
           <Image src={post.image} alt={post.title} fill />
         </BlogImageContainer>
-
-        <PortableText value={post.post} components={RichTextComponents} />
+        <BlogBodyContainer>
+          <PortableText value={post.post} components={RichTextComponents} />
+        </BlogBodyContainer>
 
         <GoBackBtn onClick={() => router.back()}>
           <Image

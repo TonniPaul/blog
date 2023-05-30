@@ -64,3 +64,9 @@ export const PublishDetailsContainer = styled.div`
     color: var(--grey);
   }
 `;
+
+export const BlogBodyContainer = styled.div`
+  @media (max-width: 768px) {
+    padding: 0 1.5rem;
+  }
+`;
