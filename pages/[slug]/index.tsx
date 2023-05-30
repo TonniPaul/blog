@@ -1,13 +1,12 @@
 import { ClipArt } from "@/components/hero/hero.style";
 import Layout from "@/components/layout/Layout";
+import { RichTextComponents } from "@/components/richTextComponent/RichTextComponent";
 import { dateFormat } from "@/helpers/dateFormat";
-import { Posts } from "@/interface/postInterface";
-import { getPost } from "@/sanity/sanity-utils";
+import { getPost, getPosts } from "@/sanity/sanity-utils";
 import {
   BlogImageContainer,
   BlogPostContainer,
   GoBackBtn,
-  PortableTextContainer,
   PublishDetailsContainer,
   TitleText,
 } from "@/styles/blogPost.style";
@@ -35,9 +34,7 @@ const BlogPost = ({ post }: any) => {
           <Image src={post.image} alt={post.title} fill />
         </BlogImageContainer>
 
-        <PortableTextContainer>
-          <PortableText value={post.post} />
-        </PortableTextContainer>
+        <PortableText value={post.post} components={RichTextComponents} />
 
         <GoBackBtn onClick={() => router.back()}>
           <Image
@@ -64,3 +61,20 @@ export async function getServerSideProps({ params }: Props) {
     },
   };
 }
+
+export const revalidate = 2;
+
+export const generateStaticParams = async () => {
+  // Retrieve all posts from the API
+  const posts = await getPosts();
+
+  // Extract the slugs from each post
+  const slugs = posts.map((post) => post.slug);
+
+  // Return an array of objects with the required `params` structure
+  return slugs.map((slug) => ({
+    params: {
+      slug: slug,
+    },
+  }));
+};

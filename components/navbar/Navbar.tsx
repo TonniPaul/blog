@@ -28,19 +28,6 @@ const Navbar = () => {
 
       <ul>
         <li>
-          <Link href={"/"} className={router.pathname === "/" ? "active" : ""}>
-            HOME
-          </Link>
-        </li>
-        <li>
-          <Link
-            href={"/blog"}
-            className={router.pathname === "/blog" ? "active" : ""}
-          >
-            BLOG
-          </Link>
-        </li>
-        <li>
           <a href="https://tonnipaul.com/#contact">CONTACT</a>
         </li>
 
