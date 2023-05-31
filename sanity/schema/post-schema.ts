@@ -11,7 +11,7 @@ const project = {
         Rule.required()
           .min(10)
           .error("A title of min. 10 characters is required"),
-        Rule.max(50).warning("Shorter titles are usually better"),
+        Rule.max(90).warning("Shorter titles are usually better"),
       ],
     },
     {
