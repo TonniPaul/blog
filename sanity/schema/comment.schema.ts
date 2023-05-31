@@ -1,29 +1,30 @@
 const comment = {
   name: "comment",
-  title: "Comment",
   type: "document",
+  title: "Comment",
   fields: [
     {
       name: "name",
-      title: "Username",
       type: "string",
-      readOnly: true,
     },
     {
-      name: "userComment",
-      title: "Comment",
+      title: "Approved",
+      name: "approved",
+      type: "boolean",
+      description: "Comments won't show on the site without approval",
+    },
+    {
+      name: "email",
+      type: "string",
+    },
+    {
+      name: "comment",
       type: "text",
-      readOnly: true,
     },
     {
       name: "post",
-      title: "Post",
       type: "reference",
-      to: [
-        {
-          type: "post",
-        },
-      ],
+      to: [{ type: "post" }],
     },
   ],
 };
