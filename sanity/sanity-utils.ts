@@ -31,7 +31,14 @@ export async function getPost(slug: string): Promise<Posts> {
       date_created, 
       author,
       post,
-      summary
+      summary,
+      'comments': *[_type == "comment" && post._ref == ^._id && approved == true]{
+            _id, 
+            name, 
+            email, 
+            comment, 
+            _createdAt
+        }
     }`,
     { slug }
   );
