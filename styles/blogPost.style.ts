@@ -70,3 +70,16 @@ export const BlogBodyContainer = styled.div`
     padding: 0 1.5rem 1rem;
   }
 `;
+export const CommentContainer = styled.div`
+  @media (max-width: 768px) {
+    margin: 1rem;
+  }
+  max-width: 500px;
+  margin: 1rem 0;
+  padding: 1rem 0;
+  & > p {
+    font-weight: 700;
+    font-size: 1.06rem;
+    margin-bottom: 1rem;
+  }
+`;

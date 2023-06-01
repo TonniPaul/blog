@@ -13,7 +13,7 @@ const GlobalStyles = createGlobalStyle`
    --inset-box: inset 5px 10px 8px #b5b5b5, inset -5px -5px 8px #fff;
    --transition: .5s ease-in-out;
    --grey: #667085;
-   --purple-box-shadow: 1px 1px 10px #301645, -1px -1px 10px #7e45aa;
+   --purple-box-shadow: 1px 1px 2px #301645, -1px -1px 2px #7e45aa;
    --purple-inset-box: inset 1px 1px 10px #44255c, inset -1px -1px 10px #7e45aa;
    --white: #ffffff;
    --max-width : 1200px;

@@ -1,12 +1,17 @@
+import CommentCard from "@/components/cards/commentCard/CommentCard";
+import CommentForm from "@/components/commentForm/CommentForm";
 import { ClipArt } from "@/components/hero/hero.style";
 import Layout from "@/components/layout/Layout";
 import { RichTextComponents } from "@/components/richTextComponent/RichTextComponent";
 import { dateFormat } from "@/helpers/dateFormat";
+import { CommentInterface } from "@/interface/comment.interface";
+import { Posts } from "@/interface/postInterface";
 import { getPost, getPosts } from "@/sanity/sanity-utils";
 import {
   BlogBodyContainer,
   BlogImageContainer,
   BlogPostContainer,
+  CommentContainer,
   GoBackBtn,
   PublishDetailsContainer,
   TitleText,
@@ -37,7 +42,25 @@ const BlogPost = ({ post }: any) => {
         <BlogBodyContainer>
           <PortableText value={post.post} components={RichTextComponents} />
         </BlogBodyContainer>
+        <CommentContainer>
+          <p>Comments ({post.comments.length}) </p>
 
+          {post.comments.map((comment: CommentInterface) => {
+            return (
+              <CommentCard
+                key={comment._id}
+                name={comment.name}
+                comment={comment.comment}
+                date={dateFormat(comment._createdAt)}
+              />
+            );
+          })}
+        </CommentContainer>
+
+        <CommentContainer>
+          <p>Leave a comment on this post</p>
+          <CommentForm _id={post._id} />
+        </CommentContainer>
         <GoBackBtn onClick={() => router.back()}>
           <Image
             src={"/assets/back-icon.png"}
@@ -56,15 +79,18 @@ export default BlogPost;
 
 export async function getServerSideProps({ params }: Props) {
   const slug = params.slug;
-  const post = await getPost(slug);
+  const post: Posts = await getPost(slug);
+  // const comment = await getComment();
+
   return {
     props: {
       post,
+      // comment,
     },
   };
 }
 
-export const revalidate = 2;
+export const revalidate = 60;
 
 export const generateStaticParams = async () => {
   // Retrieve all posts from the API

@@ -1,7 +1,8 @@
 import { PortableTextBlock } from "sanity";
+import { CommentInterface } from "./comment.interface";
 
 export interface Posts {
-  __id: string;
+  _id: string;
   _createdAt: string;
   title: string;
   slug: string;
@@ -10,6 +11,7 @@ export interface Posts {
   post: PortableTextBlock[];
   image: string;
   summary: string;
+  comments: CommentInterface;
 }
 
 export interface MyPosts {

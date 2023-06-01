@@ -2,6 +2,12 @@ const comment = {
   name: "comment",
   type: "document",
   title: "Comment",
+  groups: [
+    {
+      name: "email",
+      title: "Email",
+    },
+  ],
   fields: [
     {
       name: "name",
@@ -16,6 +22,7 @@ const comment = {
     {
       name: "email",
       type: "string",
+      group: "email",
     },
     {
       name: "comment",
