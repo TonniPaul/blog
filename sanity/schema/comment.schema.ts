@@ -20,9 +20,9 @@ const comment = {
       description: "Comments won't show on the site without approval",
     },
     {
+      group: "email",
       name: "email",
       type: "string",
-      group: "email",
     },
     {
       name: "comment",
@@ -34,26 +34,5 @@ const comment = {
       to: [{ type: "post" }],
     },
   ],
-  preview: {
-    select: {
-      name: "name",
-      comment: "comment",
-      postTitle: "post.title",
-    },
-    prepare({
-      name,
-      comment,
-      postTitle,
-    }: {
-      name: string;
-      comment: string;
-      postTitle: string;
-    }) {
-      return {
-        title: `${name} on ${postTitle}`,
-        subtitle: comment,
-      };
-    },
-  },
 };
 export default comment;
