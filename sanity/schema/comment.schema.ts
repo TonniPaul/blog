@@ -1,4 +1,4 @@
-const comment = {
+const comment: any = {
   name: "comment",
   type: "document",
   title: "Comment",
@@ -34,5 +34,27 @@ const comment = {
       to: [{ type: "post" }],
     },
   ],
+  preview: {
+    select: {
+      name: "name",
+      comment: "comment",
+      post: "post.title",
+    },
+    prepare({
+      name,
+      comment,
+      post,
+    }: {
+      name: string;
+      comment: string;
+      post: { title: string };
+    }) {
+      return {
+        title: `${name} on ${post}`,
+        subtitle: comment,
+      };
+    },
+  },
 };
+
 export default comment;
