@@ -4,6 +4,7 @@ import { ClipArt } from "@/components/hero/hero.style";
 import Layout from "@/components/layout/Layout";
 import { RichTextComponents } from "@/components/richTextComponent/RichTextComponent";
 import { dateFormat } from "@/helpers/dateFormat";
+import getTimeAgoString from "@/helpers/time-difference";
 import { CommentInterface } from "@/interface/comment.interface";
 import { Posts } from "@/interface/postInterface";
 import { getPost, getPosts } from "@/sanity/sanity-utils";
@@ -51,7 +52,7 @@ const BlogPost = ({ post }: any) => {
                 key={comment._id}
                 name={comment.name}
                 comment={comment.comment}
-                date={dateFormat(comment._createdAt)}
+                date={getTimeAgoString(comment._createdAt)}
               />
             );
           })}
@@ -80,12 +81,10 @@ export default BlogPost;
 export async function getServerSideProps({ params }: Props) {
   const slug = params.slug;
   const post: Posts = await getPost(slug);
-  // const comment = await getComment();
 
   return {
     props: {
       post,
-      // comment,
     },
   };
 }
