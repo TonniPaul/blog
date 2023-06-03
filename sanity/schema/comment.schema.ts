@@ -18,6 +18,7 @@ const comment: any = {
       name: "approved",
       type: "boolean",
       description: "Comments won't show on the site without approval",
+      initialValue: true,
     },
     {
       group: "email",
@@ -33,7 +34,6 @@ const comment: any = {
       type: "reference",
       to: [{ type: "post" }],
     },
-
   ],
   preview: {
     select: {
