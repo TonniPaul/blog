@@ -43,7 +43,7 @@ const comment: any = {
       name: "name",
       comment: "comment",
       post: "post.title",
-      previewImg: "post.image.asset.url",
+      previewImg: "post.image",
     },
     prepare({
       name,
@@ -57,9 +57,9 @@ const comment: any = {
       previewImg: string;
     }) {
       return {
-        title: `${name} on ${post}`,
+        title: `${name} comment on "${post}"`,
         subtitle: comment,
-        imageUrl: previewImg,
+        media: previewImg,
       };
     },
   },
