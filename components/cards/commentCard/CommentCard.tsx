@@ -1,5 +1,8 @@
 import Image from "next/image";
-import { CommentCardStyles } from "./commentCard.style";
+import {
+  CommentCardStyles,
+  CommentNameAndTimeContainer,
+} from "./commentCard.style";
 
 interface CommentCardProps {
   name: string;
@@ -18,10 +21,10 @@ const CommentCard = ({ name, comment, date }: CommentCardProps) => {
           height={30}
         />
         <div>
-          <div>
+          <CommentNameAndTimeContainer>
             <p> {name} </p>
             <small> {date} </small>
-          </div>
+          </CommentNameAndTimeContainer>
           <p> {comment} </p>
         </div>
       </div>
