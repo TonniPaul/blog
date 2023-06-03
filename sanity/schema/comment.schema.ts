@@ -33,10 +33,7 @@ const comment: any = {
       type: "reference",
       to: [{ type: "post" }],
     },
-    {
-      name: "previewImg",
-      type: "image",
-    },
+
   ],
   preview: {
     select: {
