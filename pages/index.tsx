@@ -5,10 +5,11 @@ import { dateFormat } from "@/helpers/dateFormat";
 import { MyPosts, Posts } from "@/interface/postInterface";
 import { getPosts } from "@/sanity/sanity-utils";
 import { Container, FlexContainer } from "@/styles/home.styles";
+import { ReactElement } from "react";
 
 export default function Home({ posts }: MyPosts) {
   return (
-    <Layout>
+    <>
       <Hero />
       <Container>
         <h3>WEB TECHNOLOGIES</h3>
@@ -27,9 +28,13 @@ export default function Home({ posts }: MyPosts) {
           })}
         </FlexContainer>
       </Container>
-    </Layout>
+    </>
   );
 }
+
+Home.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
+};
 
 export async function getServerSideProps() {
   const posts: Posts[] = await getPosts();
