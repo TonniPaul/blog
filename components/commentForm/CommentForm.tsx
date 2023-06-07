@@ -1,24 +1,34 @@
 import { CommentFormStyle, ErrorText } from "./commentForm.style";
 import { useForm, Resolver, FieldErrors } from "react-hook-form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type FormValues = {
   name: string;
-  message: string;
+  comment: string;
+  email: string;
+  approved: boolean;
 };
 
 const resolver: Resolver<FormValues> = async (values) => {
   const errors: FieldErrors<FormValues> = {};
 
   if (!values.name) {
+    values.approved = true;
     errors.name = {
       type: "required",
       message: "This field is required.",
     };
   }
 
-  if (!values.message) {
-    errors.message = {
+  if (!values.email) {
+    errors.email = {
+      type: "required",
+      message: "This field is required.",
+    };
+  }
+
+  if (!values.comment) {
+    errors.comment = {
       type: "required",
       message: "This field is required.",
     };
@@ -38,36 +48,56 @@ const CommentForm = ({ _id }: any) => {
     reset,
     getValues,
   } = useForm<FormValues>({ resolver });
-  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [buttonText, setButtonText] = useState("Submit");
 
-  const onSubmit = handleSubmit((data) => {
+  const submitForm = async (data: FormValues) => {
     data = getValues();
-    fetch("/api/createComment", {
-      method: "POST",
-      body: JSON.stringify({ ...data, _id }),
-    });
+    setIsSubmitting(true);
+    try {
+      await fetch("/api/createComment", {
+        method: "POST",
+        body: JSON.stringify({ ...data, _id }),
+      });
+      setIsSubmitting(false);
+      setHasSubmitted(true);
+      reset();
+      setTimeout(() => setHasSubmitted(false), 2000);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
-    setIsLoading(true);
+  const onSubmit = handleSubmit(submitForm);
 
-    alert(
-      `Dear ${data.name}, we are still working on this section to u[date your comments to the database`
-    );
-    // Reset form fields on successful submit
-    reset();
-    setIsLoading(false);
-  });
+  useEffect(() => {
+    if (isSubmitting) {
+      setButtonText("Submitting");
+    } else if (hasSubmitted) {
+      setButtonText("Submitted ");
+    } else {
+      setButtonText("Submit");
+    }
+  }, [isSubmitting, hasSubmitted]);
 
   return (
     <CommentFormStyle>
       <form onSubmit={onSubmit}>
-        <label htmlFor="name"> Name</label>
+        <label htmlFor="name">Name</label>
         <input {...register("name")} name="name" />
         {errors?.name && <ErrorText>{errors.name.message}</ErrorText>}
-        <label htmlFor="message">Comment</label>
-        <textarea {...register("message")} rows={5} name="message" />
-        {errors?.message && <ErrorText>{errors.message.message}</ErrorText>}
-        <button type="submit" disabled={isLoading}>
-          {isLoading ? "Loading..." : "Submit"}
+
+        <label htmlFor="email">Email</label>
+        <input type="email" {...register("email")} name="email" />
+        {errors?.email && <ErrorText>{errors.email.message}</ErrorText>}
+
+        <label htmlFor="comment">Comment</label>
+        <textarea {...register("comment")} rows={5} name="comment" />
+        {errors?.comment && <ErrorText>{errors.comment.message}</ErrorText>}
+
+        <button disabled={isSubmitting}>
+          {buttonText} {hasSubmitted && <span>&#9989;</span>}
         </button>
       </form>
     </CommentFormStyle>

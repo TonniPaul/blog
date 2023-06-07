@@ -53,6 +53,10 @@ export const CommentFormStyle = styled.div`
       box-shadow: var(--purple-box-shadow);
       margin-top: 1rem;
       color: var(--white);
+
+      & span {
+        display: inline;
+      }
     }
   }
 `;

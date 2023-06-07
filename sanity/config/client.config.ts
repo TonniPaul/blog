@@ -4,6 +4,8 @@ const clientConfig = {
   dataset: process.env.SANITY_DATASET,
 
   apiVersion: process.env.SANITY_API_VERSION,
+
+  token: process.env.SANITY_TOKEN,
 };
 
 export default clientConfig;
