@@ -27,7 +27,7 @@ export default function Layout({ children, title, description }: Props) {
           }
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/assets/blog.png" />
+        <link rel="icon" href="/assets/tn.png" />
       </Head>
       <Navbar />
       <main>{children}</main>
