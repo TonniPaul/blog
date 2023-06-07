@@ -47,7 +47,6 @@ export const CommentFormStyle = styled.div`
       font-weight: 600;
     }
     & button {
-      width: max-content;
       padding: 0.7rem 2rem;
       background: var(--purple);
       box-shadow: var(--purple-box-shadow);
