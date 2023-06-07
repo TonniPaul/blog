@@ -82,4 +82,31 @@ export const CommentContainer = styled.div`
     font-size: 1.06rem;
     margin-bottom: 1rem;
   }
+
+  & > div {
+    & > div {
+      margin: 2rem 0;
+      padding: 2rem;
+
+      & img {
+        position: absolute;
+        top: 0px;
+      }
+    }
+
+    & > div:nth-child(odd) {
+      transform: rotate(2deg);
+      border-top-left-radius: 30px;
+      & img {
+        left: 0;
+      }
+    }
+    & > div:nth-child(even) {
+      transform: rotate(-2deg);
+      border-top-right-radius: 30px;
+      & img {
+        right: 0;
+      }
+    }
+  }
 `;

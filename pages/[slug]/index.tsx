@@ -46,20 +46,22 @@ const BlogPost = ({ post }: any) => {
         <CommentContainer>
           <p>Comments ({post.comments.length}) </p>
 
-          {post.comments.map((comment: CommentInterface) => {
-            return (
-              <CommentCard
-                key={comment._id}
-                name={comment.name}
-                comment={comment.comment}
-                date={getTimeAgoString(comment._createdAt)}
-              />
-            );
-          })}
+          <div>
+            {post.comments.map((comment: CommentInterface) => {
+              return (
+                <CommentCard
+                  key={comment._id}
+                  name={comment.name}
+                  comment={comment.comment}
+                  date={getTimeAgoString(comment._createdAt)}
+                />
+              );
+            })}
+          </div>
         </CommentContainer>
 
         <CommentContainer>
-          <p>Leave a comment on this post</p>
+          <p>Leave a comment</p>
           <CommentForm _id={post._id} />
         </CommentContainer>
         <GoBackBtn onClick={() => router.back()}>
