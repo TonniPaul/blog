@@ -15,9 +15,24 @@ import {
   CommentContainer,
   GoBackBtn,
   PublishDetailsContainer,
+  SocialContainer,
   TitleText,
 } from "@/styles/blogPost.style";
 import { PortableText } from "@portabletext/react";
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  PinterestShareButton,
+  PinterestIcon,
+  RedditShareButton,
+  RedditIcon,
+  WhatsappShareButton,
+  WhatsappIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+  TwitterIcon,
+  TwitterShareButton,
+} from "next-share";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
@@ -43,6 +58,52 @@ const BlogPost = ({ post }: any) => {
         <BlogBodyContainer>
           <PortableText value={post.post} components={RichTextComponents} />
         </BlogBodyContainer>
+
+        <SocialContainer>
+          <p>Share to:</p>
+
+          <div>
+            <FacebookShareButton
+              title={post.title}
+              url={`https://blog.tonnipaul.com/${post.slug}`}
+            >
+              <FacebookIcon round size={32} />
+            </FacebookShareButton>
+            <TwitterShareButton
+              hashtags={["tonnipaul", "tonnipaulblog", "webdevelopment"]}
+              title={post.title}
+              url={`https://blog.tonnipaul.com/${post.slug}`}
+            >
+              <TwitterIcon size={32} round />
+            </TwitterShareButton>
+            <PinterestShareButton
+              title={post.title}
+              url={`https://blog.tonnipaul.com/${post.slug}`}
+              media={post.image}
+            >
+              <PinterestIcon round size={32} />
+            </PinterestShareButton>
+            <RedditShareButton
+              title={post.title}
+              url={`https://blog.tonnipaul.com/${post.slug}`}
+            >
+              <RedditIcon size={32} round />
+            </RedditShareButton>
+            <WhatsappShareButton
+              title={post.title}
+              url={`https://blog.tonnipaul.com/${post.slug}`}
+            >
+              <WhatsappIcon size={32} round />
+            </WhatsappShareButton>
+            <LinkedinShareButton
+              title={post.title}
+              url={`https://blog.tonnipaul.com/${post.slug}`}
+            >
+              <LinkedinIcon size={32} round />
+            </LinkedinShareButton>
+          </div>
+        </SocialContainer>
+
         <CommentContainer>
           <p>Comments ({post.comments.length}) </p>
 
