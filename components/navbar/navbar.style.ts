@@ -3,23 +3,26 @@ import styled from "styled-components";
 interface NavLinkStyleProp {
   open: boolean;
 }
+export const Headr = styled.header`
+  background: var(--primary-bg);
+  box-shadow: var(--box-shadow);
+  z-index: 3;
+  color: var(--purple);
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+`;
 
 export const NavStyle = styled.nav<NavLinkStyleProp>`
   display: flex;
   justify-content: space-between;
-  width: 100%;
   align-items: center;
   padding: 1rem 1.5rem;
-  user-select: none;
-  position: fixed;
-  top: 0;
-  background: var(--primary-bg);
-  left: 0;
-  box-shadow: var(--box-shadow);
+  max-width: 1440px;
   transition: var(--transition);
-  z-index: 3;
-  color: var(--purple);
   position: relative;
+  margin: 0 auto;
 
   & ul {
     list-style: none;
