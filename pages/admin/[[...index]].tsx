@@ -9,7 +9,7 @@ const AdminPage = () => {
     <>
       <Head>
         <title>Dashboard</title>
-        <link rel="icon" href="/assets/blog.png" />
+        <link rel="icon" href="/assets/tn.png" />
       </Head>
       <NextStudio config={config} />
     </>
