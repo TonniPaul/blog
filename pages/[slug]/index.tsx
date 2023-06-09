@@ -3,6 +3,7 @@ import CommentForm from "@/components/commentForm/CommentForm";
 import { ClipArt } from "@/components/hero/hero.style";
 import Layout from "@/components/layout/Layout";
 import { RichTextComponents } from "@/components/richTextComponent/RichTextComponent";
+import ShareToSocialMedia from "@/components/share-to-social/share-to-social";
 import { dateFormat } from "@/helpers/dateFormat";
 import getTimeAgoString from "@/helpers/time-difference";
 import { CommentInterface } from "@/interface/comment.interface";
@@ -15,24 +16,10 @@ import {
   CommentContainer,
   GoBackBtn,
   PublishDetailsContainer,
-  SocialContainer,
   TitleText,
 } from "@/styles/blogPost.style";
 import { PortableText } from "@portabletext/react";
-import {
-  FacebookShareButton,
-  FacebookIcon,
-  PinterestShareButton,
-  PinterestIcon,
-  RedditShareButton,
-  RedditIcon,
-  WhatsappShareButton,
-  WhatsappIcon,
-  LinkedinShareButton,
-  LinkedinIcon,
-  TwitterIcon,
-  TwitterShareButton,
-} from "next-share";
+
 import Image from "next/image";
 import { useRouter } from "next/router";
 
@@ -59,65 +46,33 @@ const BlogPost = ({ post }: any) => {
           <PortableText value={post.post} components={RichTextComponents} />
         </BlogBodyContainer>
 
-        <SocialContainer>
-          <p>Share to:</p>
-
-          <div>
-            <FacebookShareButton
-              title={post.title}
-              url={`https://blog.tonnipaul.com/${post.slug}`}
-            >
-              <FacebookIcon round size={32} />
-            </FacebookShareButton>
-            <TwitterShareButton
-              hashtags={["tonnipaul", "tonnipaulblog", "webdevelopment"]}
-              title={post.title}
-              url={`https://blog.tonnipaul.com/${post.slug}`}
-            >
-              <TwitterIcon size={32} round />
-            </TwitterShareButton>
-            <PinterestShareButton
-              title={post.title}
-              url={`https://blog.tonnipaul.com/${post.slug}`}
-              media={post.image}
-            >
-              <PinterestIcon round size={32} />
-            </PinterestShareButton>
-            <RedditShareButton
-              title={post.title}
-              url={`https://blog.tonnipaul.com/${post.slug}`}
-            >
-              <RedditIcon size={32} round />
-            </RedditShareButton>
-            <WhatsappShareButton
-              title={post.title}
-              url={`https://blog.tonnipaul.com/${post.slug}`}
-            >
-              <WhatsappIcon size={32} round />
-            </WhatsappShareButton>
-            <LinkedinShareButton
-              title={post.title}
-              url={`https://blog.tonnipaul.com/${post.slug}`}
-            >
-              <LinkedinIcon size={32} round />
-            </LinkedinShareButton>
-          </div>
-        </SocialContainer>
+        <ShareToSocialMedia
+          title={post.title}
+          url={post.slug}
+          media={post.image}
+          description={post.summary}
+        />
 
         <CommentContainer>
           <p>Comments ({post.comments.length}) </p>
 
           <div>
-            {post.comments.map((comment: CommentInterface) => {
-              return (
-                <CommentCard
-                  key={comment._id}
-                  name={comment.name}
-                  comment={comment.comment}
-                  date={getTimeAgoString(comment._createdAt)}
-                />
-              );
-            })}
+            {post.comments.length <= 0 ? (
+              <p>Be the first to comment</p>
+            ) : (
+              <div>
+                {post.comments.map((comment: CommentInterface) => {
+                  return (
+                    <CommentCard
+                      key={comment._id}
+                      name={comment.name}
+                      comment={comment.comment}
+                      date={getTimeAgoString(comment._createdAt)}
+                    />
+                  );
+                })}
+              </div>
+            )}
           </div>
         </CommentContainer>
 
