@@ -56,10 +56,16 @@ const CommentForm = ({ _id }: any) => {
     data = getValues();
     setIsSubmitting(true);
     try {
-      await fetch("/api/createComment", {
-        method: "POST",
-        body: JSON.stringify({ ...data, _id }),
-      });
+      await Promise.all([
+        fetch("/api/createComment", {
+          method: "POST",
+          body: JSON.stringify({ ...data, _id }),
+        }),
+        fetch("/api/sendEmail", {
+          method: "POST",
+          body: JSON.stringify({ ...data }),
+        }),
+      ]);
       setIsSubmitting(false);
       setHasSubmitted(true);
       reset();
@@ -70,6 +76,7 @@ const CommentForm = ({ _id }: any) => {
   };
 
   const onSubmit = handleSubmit(submitForm);
+  
 
   useEffect(() => {
     if (isSubmitting) {
