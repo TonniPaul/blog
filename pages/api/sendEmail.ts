@@ -12,12 +12,14 @@ export default async function sendNotification(
   const emailBody = comment;
 
   await sendEmail({
-    to: "pauloluwatoni@gmail.com, contact@tonnipaul.com",
+    to: "ariyoadeoyepaul@gmail.com",
     subject: emailSubject,
     text: `
       Name: ${name} \n\n 
       Email:  ${email} \n\n 
-      Comment: ${emailBody} 
+      Comment: ${emailBody} \n\n\n\n\n\n\n
+      
+      Powered By tonnipaul.com
       `,
   });
 
