@@ -82,47 +82,4 @@ export const CommentContainer = styled.div`
     font-size: 1.06rem;
     margin-bottom: 1rem;
   }
-
-  & > div {
-    & > div {
-      margin: 2rem 0;
-      padding: 2rem;
-
-      & img {
-        position: absolute;
-        top: 0px;
-      }
-    }
-
-    & > div:nth-child(odd) {
-      transform: rotate(2deg);
-      border-top-left-radius: 30px;
-      & img {
-        left: 0;
-      }
-    }
-    & > div:nth-child(even) {
-      transform: rotate(-2deg);
-      border-top-right-radius: 30px;
-      & img {
-        right: 0;
-      }
-    }
-  }
-`;
-
-export const SocialContainer = styled.div`
-  text-align: center;
-  margin: 2rem 0;
-
-  & p {
-    padding: 1rem 0;
-  }
-
-  & > div {
-    display: flex;
-    gap: 10px;
-    width: 100%;
-    justify-content: center;
-  }
 `;
