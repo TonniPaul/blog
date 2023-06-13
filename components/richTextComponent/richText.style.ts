@@ -10,43 +10,48 @@ export const RichTextImageContainer = styled.div`
 export const H1Style = styled.h4`
   font-weight: 700;
   font-size: 1.4rem;
-  padding: 0.5rem 0;
+  padding-bottom: 0.5rem;
   color: var(--yellow);
 `;
+
 export const P = styled.p`
-  padding: 0.1rem 0;
+  padding-bottom: 0.5rem;
 `;
 
 export const H2Style = styled.h4`
   font-weight: 700;
   font-size: 1.3rem;
-  padding: 0.5rem 0;
+  padding-bottom: 0.5rem;
   color: var(--yellow);
 `;
 export const H3Style = styled.h4`
   font-weight: 700;
   font-size: 1.2rem;
-  padding: 0.5rem 0;
+  padding-bottom: 0.5rem;
   color: var(--yellow);
 `;
+
 export const H4Style = styled.h4`
   font-weight: 700;
   font-size: 1.1rem;
-  padding: 0.5rem 0;
+  padding-bottom: 0.5rem;
   color: var(--yellow);
 `;
+
 export const H5Style = styled.h4`
   font-weight: 700;
   font-size: 1rem;
-  padding: 0.5rem 0;
+  padding-bottom: 0.5rem;
   color: var(--yellow);
 `;
+
 export const H6Style = styled.h4`
   font-weight: 700;
   font-size: 0.9375rem;
-  padding: 0.5rem 0;
+  padding-bottom: 0.5rem;
   color: var(--yellow);
 `;
+
 export const BlockQuote = styled.blockquote`
   background: var(--transparent-purple-bg);
   border-left: 2px solid var(--yellow);
@@ -60,7 +65,7 @@ export const ULStyle = styled.ul`
   list-style-position: inside;
 
   & li {
-    padding: 0.5rem 0;
+    padding-bottom: 0.5rem;
   }
 `;
 

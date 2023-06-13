@@ -68,6 +68,10 @@ export const PublishDetailsContainer = styled.div`
 export const BlogBodyContainer = styled.div`
   @media (max-width: 768px) {
     padding: 0 1.5rem 1rem;
+
+    & * {
+      line-height: 20px;
+    }
   }
 `;
 export const CommentContainer = styled.div`
