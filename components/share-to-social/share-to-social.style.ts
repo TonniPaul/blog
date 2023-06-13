@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const SocialContainer = styled.div`
   text-align: center;
   margin: 2rem 0;
+  padding: 0 1rem;
 
   & p {
     padding: 1rem 0;
