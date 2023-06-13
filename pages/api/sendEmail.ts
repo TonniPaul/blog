@@ -17,9 +17,9 @@ export default async function sendNotification(
     text: `
       Name: ${name} \n\n 
       Email:  ${email} \n\n 
-      Comment: ${emailBody} \n\n\n\n\n\n\n
+      Comment: ${emailBody} \n\n\n\n\
       
-      Powered By tonnipaul.com
+    Powered By tonnipaul.com
       `,
   });
 
