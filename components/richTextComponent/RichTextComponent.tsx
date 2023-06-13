@@ -10,6 +10,7 @@ import {
   H5Style,
   H6Style,
   OLStyle,
+  P,
   RichTextImageContainer,
   RichTextLinks,
   ULStyle,
@@ -69,6 +70,9 @@ export const RichTextComponents = {
     },
     blockquote: ({ children }: any) => {
       return <BlockQuote>{children}</BlockQuote>;
+    },
+    normal: ({ children }: any) => {
+      return <P>{children}</P>;
     },
   },
   marks: {

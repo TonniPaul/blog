@@ -13,6 +13,10 @@ export const H1Style = styled.h4`
   padding: 0.5rem 0;
   color: var(--yellow);
 `;
+export const P = styled.p`
+  padding: 0.1rem 0;
+`;
+
 export const H2Style = styled.h4`
   font-weight: 700;
   font-size: 1.3rem;
