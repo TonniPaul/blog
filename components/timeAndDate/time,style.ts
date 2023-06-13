@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const TimeContainer = styled.div`
+export const TimeContainer = styled.time`
   position: absolute;
   width: max-content;
   text-align: right;
