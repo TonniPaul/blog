@@ -2,6 +2,7 @@ import Head from "next/head";
 import Navbar from "../navbar/Navbar";
 import { ReactNode } from "react";
 import Footer from "../footer/Footer";
+import ScrollToTop from "../ScrollToTop/ScrollToTop";
 
 type Props = {
   children: ReactNode;
@@ -31,6 +32,7 @@ export default function Layout({ children, title, description }: Props) {
       </Head>
       <Navbar />
       <main>{children}</main>
+      <ScrollToTop />
       <Footer />
     </>
   );
