@@ -54,6 +54,7 @@ const BlogPost = ({ post }: { post: Posts }) => {
           url={post.slug}
           media={post.image}
           description={post.summary}
+          author={post.author}
         />
 
         <CommentContainer>
