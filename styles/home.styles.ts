@@ -5,7 +5,7 @@ export const Container = styled.div`
   margin: auto;
   padding: 1rem;
 
-  & h3 {
+  & > h3 {
     font-size: 18px;
     padding: 2rem 0;
     width: 700px;

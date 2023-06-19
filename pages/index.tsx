@@ -1,6 +1,7 @@
 import PostCard from "@/components/cards/postCard/PostCard";
 import Hero from "@/components/hero/Hero";
 import Layout from "@/components/layout/Layout";
+import NewsLetter from "@/components/news-letter/newsletter";
 import { dateFormat } from "@/helpers/dateFormat";
 import { MyPosts, Posts } from "@/interface/postInterface";
 import { getPosts } from "@/sanity/sanity-utils";
@@ -36,6 +37,7 @@ export default function Home({ posts }: MyPosts) {
           <p>No Post yet</p>
         </NoPostStyle>
       )}
+      <NewsLetter />
     </>
   );
 }
