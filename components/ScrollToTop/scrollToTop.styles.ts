@@ -15,7 +15,6 @@ export const ScrollToTopContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid var(--yellow);
   transition: transform var(--short-transition);
   animation: ${bounce} 3s infinite;
 
