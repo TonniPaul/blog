@@ -25,6 +25,7 @@ interface SocialShareTypes {
   url: string;
   media: string;
   description: string;
+  author: string;
 }
 
 const ShareToSocialMedia = ({
@@ -32,6 +33,7 @@ const ShareToSocialMedia = ({
   url,
   media,
   description,
+  author,
 }: SocialShareTypes) => {
   const emailBody = `${description}\n\nRead full article here: <a href="https://blog.tonnipaul.com/${url}">Read more here</a>`;
   return (
@@ -40,7 +42,7 @@ const ShareToSocialMedia = ({
 
       <div>
         <FacebookShareButton
-          title={title}
+          title={`Check out this article by *${author}*: \n*${title.toUpperCase()}* \n`}
           url={`https://blog.tonnipaul.com/${url}`}
           aria-label="facebook"
         >
@@ -49,7 +51,7 @@ const ShareToSocialMedia = ({
 
         <TwitterShareButton
           hashtags={["tonnipaul", "tonnipaulblog", "webdevelopment"]}
-          title={title}
+          title={`Check out this article by *${author}*: \n*${title.toUpperCase()}* \n`}
           url={`https://blog.tonnipaul.com/${url}`}
           aria-label="twitter"
         >
@@ -57,7 +59,7 @@ const ShareToSocialMedia = ({
         </TwitterShareButton>
 
         <WhatsappShareButton
-          title={title}
+          title={`Check out this article by *${author}*: \n*${title.toUpperCase()}* \n`}
           url={`https://blog.tonnipaul.com/${url}`}
           aria-label="whatsapp"
         >
@@ -65,7 +67,7 @@ const ShareToSocialMedia = ({
         </WhatsappShareButton>
 
         <LinkedinShareButton
-          title={title}
+          title={`Check out this article by *${author}*: \n*${title.toUpperCase()}* \n`}
           url={`https://blog.tonnipaul.com/${url}`}
           aria-label="linkedin"
         >
@@ -86,7 +88,7 @@ const ShareToSocialMedia = ({
         </TelegramShareButton>
 
         <PinterestShareButton
-          title={title}
+          title={`Check out this article by *${author}*: \n*${title.toUpperCase()}* \n`}
           description={description}
           url={`https://blog.tonnipaul.com/${url}`}
           media={media}
@@ -96,7 +98,7 @@ const ShareToSocialMedia = ({
         </PinterestShareButton>
 
         <RedditShareButton
-          title={title}
+          title={`Check out this article by *${author}*: \n*${title.toUpperCase()}* \n`}
           url={`https://blog.tonnipaul.com/${url}`}
           aria-label="reddit"
         >
@@ -105,7 +107,7 @@ const ShareToSocialMedia = ({
 
         <LivejournalShareButton
           url={url}
-          title={title}
+          title={`Check out this article by *${author}*: \n*${title.toUpperCase()}* \n`}
           description={description}
           aria-label="livejournal"
         >

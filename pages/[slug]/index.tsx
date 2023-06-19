@@ -27,14 +27,17 @@ interface Props {
   params: { slug: string };
 }
 
-const BlogPost = ({ post }: any) => {
+const BlogPost = ({ post }: { post: Posts }) => {
   const router = useRouter();
 
   return (
-    <Layout title={post.title} description={post.summary}>
+    <Layout
+      title={post.title || "Blog Post"}
+      description={post.summary || "Description"}
+    >
       <BlogPostContainer>
         <TitleText>
-          <ClipArt>{post.title}</ClipArt>
+          <ClipArt>{post.title.toUpperCase()}</ClipArt>
         </TitleText>
         <PublishDetailsContainer>
           <p> {dateFormat(post.date_created)}</p>-<p>{post.author} </p>
@@ -51,6 +54,7 @@ const BlogPost = ({ post }: any) => {
           url={post.slug}
           media={post.image}
           description={post.summary}
+          author={post.author}
         />
 
         <CommentContainer>

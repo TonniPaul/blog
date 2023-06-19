@@ -24,3 +24,14 @@ export const FlexContainer = styled.div`
   flex-wrap: wrap;
   gap: 40px;
 `;
+
+
+export const NoPostStyle = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  margin: 2rem 0;
+  padding: 5rem 0;
+  background: var(--transparent-purple-bg);
+`;

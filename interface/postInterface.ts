@@ -11,7 +11,7 @@ export interface Posts {
   post: PortableTextBlock[];
   image: string;
   summary: string;
-  comments: CommentInterface;
+  comments: CommentInterface[];
 }
 
 export interface MyPosts {
