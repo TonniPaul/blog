@@ -3,15 +3,15 @@ import sgMail from "../sendgrid.config";
 interface EmailType {
   to: string;
   subject: string;
-  text: string;
+  html: string;
 }
 
-const sendEmail = async ({ to, subject, text }: EmailType) => {
+const sendEmail = async ({ to, subject, html }: EmailType) => {
   const msg = {
     to,
     from: "noreply@tonnipaul.com",
     subject,
-    text,
+    html,
   };
 
   try {
