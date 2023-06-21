@@ -1,12 +1,14 @@
 import Image from "next/image";
+import { useState } from "react";
 import {
   NewsletterContainer,
   NewsletterForm,
   NewsletterImageContainer,
+  FormInput,
+  FormButton,
 } from "./newsletter.style";
 import { useForm, Resolver, FieldErrors } from "react-hook-form";
-import { useEffect, useState } from "react";
-import { ErrorText } from "../commentForm/commentForm.style";
+import { ErrorText, RelativeContainer } from "../commentForm/commentForm.style";
 
 interface NewsletterProps {
   name: string;
@@ -45,9 +47,10 @@ const NewsLetter = () => {
     getValues,
   } = useForm<NewsletterProps>({ resolver });
 
+  const [submitted, setSubmitted] = useState(false);
+
   const submitForm = async (data: NewsletterProps) => {
     data = getValues();
-    // setIsSubmitting(true);
     try {
       await Promise.all([
         fetch("/api/createMailList", {
@@ -63,10 +66,9 @@ const NewsLetter = () => {
           body: JSON.stringify({ ...data }),
         }),
       ]);
-      // setIsSubmitting(false);
-      // setHasSubmitted(true);
       reset();
-      // setTimeout(() => setHasSubmitted(false), 2000);
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 5000);
     } catch (err) {
       console.error(err);
     }
@@ -76,35 +78,54 @@ const NewsLetter = () => {
 
   return (
     <NewsletterContainer>
-      <NewsletterImageContainer>
-        <Image
-          src="/assets/newsletter.png"
-          alt="newsletter-icon"
-          width={30}
-          height={30}
-        />
-      </NewsletterImageContainer>
-      <p>Newsletter Sign Up</p>
+      {submitted ? (
+        <div>
+          <p>Thank you for subscribing!</p>
+        </div>
+      ) : (
+        <>
+          <NewsletterImageContainer>
+            <Image
+              src="/assets/newsletter.png"
+              alt="newsletter-icon"
+              width={30}
+              height={30}
+            />
+          </NewsletterImageContainer>
+          <p>Newsletter Sign Up</p>
 
-      <NewsletterForm onSubmit={onSubmit}>
-        {errors?.name && <ErrorText>{errors.name.message}</ErrorText>}
-        <input
-          type="text"
-          {...register("name")}
-          name="name"
-          placeholder="Enter name"
-        />
+          <NewsletterForm onSubmit={onSubmit}>
+            <RelativeContainer>
+              {errors?.name && <ErrorText>{errors.name.message}</ErrorText>}
+              <FormInput
+                error={errors?.name != null}
+                type="text"
+                {...register("name")}
+                name="name"
+                placeholder="Enter name"
+              />
+            </RelativeContainer>
 
-        {errors?.email && <ErrorText>{errors.email.message}</ErrorText>}
-        <input
-          type="email"
-          {...register("email")}
-          name="email"
-          placeholder="Enter your email address"
-        />
+            <RelativeContainer>
+              {errors?.email && <ErrorText>{errors.email.message}</ErrorText>}
+              <FormInput
+                error={errors?.email != null}
+                type="email"
+                {...register("email")}
+                name="email"
+                placeholder="Enter your email address"
+              />
+            </RelativeContainer>
 
-        <button onClick={onSubmit}>Sign me up!</button>
-      </NewsletterForm>
+            <FormButton
+              disabled={(errors?.email || errors?.name) != null}
+              type="submit"
+            >
+              Sign me up!
+            </FormButton>
+          </NewsletterForm>
+        </>
+      )}
     </NewsletterContainer>
   );
 };

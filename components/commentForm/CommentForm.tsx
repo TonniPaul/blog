@@ -1,6 +1,15 @@
-import { CommentFormStyle, ErrorText } from "./commentForm.style";
+import {
+  CommentFormStyle,
+  ErrorText,
+  RelativeContainer,
+} from "./commentForm.style";
 import { useForm, Resolver, FieldErrors } from "react-hook-form";
 import { useEffect, useState } from "react";
+import {
+  FormButton,
+  FormInput,
+  FormTextarea,
+} from "../news-letter/newsletter.style";
 
 type FormValues = {
   name: string;
@@ -76,7 +85,6 @@ const CommentForm = ({ _id }: any) => {
   };
 
   const onSubmit = handleSubmit(submitForm);
-  
 
   useEffect(() => {
     if (isSubmitting) {
@@ -91,19 +99,41 @@ const CommentForm = ({ _id }: any) => {
   return (
     <CommentFormStyle>
       <form onSubmit={onSubmit}>
-        <label htmlFor="name">Name</label>
-        <input {...register("name")} name="name" />
-        {errors?.name && <ErrorText>{errors.name.message}</ErrorText>}
+        <RelativeContainer>
+          <FormInput
+            error={errors?.name != null}
+            {...register("name")}
+            name="name"
+            placeholder="Name"
+          />
+          {errors?.name && <ErrorText>{errors.name.message}</ErrorText>}
+        </RelativeContainer>
 
-        <label htmlFor="email">Email</label>
-        <input type="email" {...register("email")} name="email" />
-        {errors?.email && <ErrorText>{errors.email.message}</ErrorText>}
+        <RelativeContainer>
+          <FormInput
+            error={errors?.email != null}
+            type="email"
+            {...register("email")}
+            name="email"
+            placeholder="Email"
+          />
+          {errors?.email && <ErrorText>{errors.email.message}</ErrorText>}
+        </RelativeContainer>
 
-        <label htmlFor="comment">Comment</label>
-        <textarea {...register("comment")} rows={5} name="comment" />
-        {errors?.comment && <ErrorText>{errors.comment.message}</ErrorText>}
+        <RelativeContainer>
+          <FormTextarea
+            error={errors?.comment != null}
+            {...register("comment")}
+            rows={5}
+            name="comment"
+            placeholder="Comment"
+          />
+          {errors?.comment && <ErrorText>{errors.comment.message}</ErrorText>}
+        </RelativeContainer>
 
-        <button disabled={isSubmitting}>
+        <button
+          disabled={(errors.comment || errors.email || errors.name) != null}
+        >
           {buttonText} {hasSubmitted && <span>&#9989;</span>}
         </button>
       </form>
