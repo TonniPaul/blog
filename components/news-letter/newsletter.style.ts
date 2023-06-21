@@ -25,18 +25,6 @@ export const NewsletterForm = styled.form`
     border-radius: 7px;
   }
 
-  & > input {
-    display: block;
-    width: 100%;
-    outline: none;
-    border: 1px solid var(--purple);
-    background: var(--transparent-purple-bg);
-    margin-bottom: 1rem;
-    padding: 1rem;
-    font-family: inherit;
-    font-weight: 1rem;
-  }
-
   & > button {
     background: var(--purple);
     color: var(--white);
@@ -48,7 +36,6 @@ export const NewsletterForm = styled.form`
 
 export const NewsletterImageContainer = styled.div`
   padding: 0.5rem;
-  /* border-radius: 50%; */
   position: absolute;
   left: 50%;
   top: -35px;
@@ -63,3 +50,54 @@ export const NewsletterImageContainer = styled.div`
     filter: var(--purple-filter);
   }
 `;
+
+export const FormInput = styled.input<{ error?: boolean }>`
+  display: block;
+  width: 100%;
+  outline: none;
+  border: 1px solid var(--purple);
+  background: var(--transparent-purple-bg);
+  margin-bottom: 1rem;
+  padding: 1rem;
+  font-family: inherit;
+  font-weight: 1rem;
+  border-radius: 7px;
+
+  ${({ error }) =>
+    error &&
+    `
+    background: var(--error-bg);
+    border-color: var(--red);
+    margin-bottom: 1.5rem;
+  `}
+`;
+
+export const FormTextarea = styled.textarea<{ error?: boolean }>`
+  display: block;
+  width: 100%;
+  outline: none;
+  border: 1px solid var(--purple);
+  background: var(--transparent-purple-bg);
+  margin-bottom: 1rem;
+  padding: 1rem;
+  font-family: inherit;
+  font-weight: 1rem;
+  resize: none;
+  border-radius: 7px;
+
+  ${({ error }) =>
+    error &&
+    `
+    background: var(--error-bg);
+    border-color: var(--red);
+  `}
+`;
+
+export const FormButton = styled.button`
+  background: var(--purple);
+  color: var(--white);
+  width: max-content;
+  padding: 0.8rem 2rem;
+  float: right;
+`;
+

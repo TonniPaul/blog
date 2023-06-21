@@ -9,7 +9,7 @@ export const CommentFormStyle = styled.div`
   box-shadow: var(--box-shadow);
   border-radius: 8px;
 
-  & * {
+  & > * {
     @media (max-width: 768px) {
       margin: 0.5rem 0;
     }
@@ -19,39 +19,14 @@ export const CommentFormStyle = styled.div`
   }
 
   & form {
-    & input,
-    textarea {
-      padding: 1rem;
-      outline: none;
-      resize: none;
-      border: 2px solid var(--white);
-      background: none;
-      border-radius: 8px;
-      font-size: 1rem;
-
-      &::-webkit-scrollbar {
-        width: 4px;
-      }
-
-      &::-webkit-scrollbar-track {
-        background: var(--black);
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background: var(--yellow);
-      }
-    }
-    & label {
-      color: var(--purple);
-      font-size: 1rem;
-      font-weight: 600;
-    }
     & button {
       padding: 0.7rem 2rem;
       background: var(--purple);
       box-shadow: var(--purple-box-shadow);
       margin-top: 1rem;
       color: var(--white);
+      position: relative;
+      width: 100%;
 
       & span {
         display: inline;
@@ -60,7 +35,15 @@ export const CommentFormStyle = styled.div`
   }
 `;
 
+export const RelativeContainer = styled.div`
+  position: relative;
+`;
+
 export const ErrorText = styled.small`
-  color: red;
+  color: var(--red);
   font-weight: 700;
+  position: absolute;
+  padding: 0 1rem;
+  right: -5px;
+  bottom: 2px;
 `;

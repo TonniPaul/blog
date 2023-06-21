@@ -8,6 +8,8 @@ const GlobalStyles = createGlobalStyle`
    --sky-blue: #76B0EF;
    --yellow : #fabb37;
    --black : #636363;
+   --error-bg: #f8e8eb;
+   --red: #ff0000;
    --transparent-purple-bg : rgba(128, 0, 128, 0.1);
    --box-shadow: 5px 5px 10px #b5b5b5, -2px -2px 10px #fff;
    --inset-box: inset 5px 10px 8px #b5b5b5, inset -5px -5px 8px #fff;
@@ -67,6 +69,7 @@ button {
 
 button:disabled {
   cursor: not-allowed !important;
+  opacity: 0.5;
 }
 
 
