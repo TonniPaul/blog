@@ -5,7 +5,7 @@ import clientConfig from "./config/client.config";
 // Function to fetch all posts and set the order to the post date input
 export async function getPosts(): Promise<Posts[]> {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "post"] | order(date_created desc) {
+    groq`*[_type == "post" && !(_id in path("drafts.**"))] | order(date_created desc) {
       _id,
       _createdAt,
       title,
