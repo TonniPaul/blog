@@ -35,87 +35,90 @@ const ShareToSocialMedia = ({
   description,
   author,
 }: SocialShareTypes) => {
-  const emailBody = `${description}\n\nRead full article here: <a href="https://blog.tonnipaul.com/${url}">Read more here</a>`;
-  return (
-    <SocialContainer>
-      <p>Share to:</p>
+const shareURL = `https://blog.tonnipaul.com/${url}`;
+const shareTitle = `Check out this article by *${author}*: \n*${title.toUpperCase()}* \n`;
+const emailBody = `${description}\n\nRead full article here: <a href="${shareURL}">Read more here</a>`;
 
-      <div>
-        <FacebookShareButton
-          title={`Check out this article by *${author}*: \n*${title.toUpperCase()}* \n`}
-          url={`https://blog.tonnipaul.com/${url}`}
-          aria-label="facebook"
-        >
-          <FacebookIcon round size={32} />
-        </FacebookShareButton>
+return (
+  <SocialContainer>
+    <p>Share to:</p>
 
-        <TwitterShareButton
-          hashtags={["tonnipaul", "tonnipaulblog", "webdevelopment"]}
-          title={`Check out this article by *${author}*: \n*${title.toUpperCase()}* \n`}
-          url={`https://blog.tonnipaul.com/${url}`}
-          aria-label="twitter"
-        >
-          <TwitterIcon size={32} round />
-        </TwitterShareButton>
+    <div>
+      <FacebookShareButton
+        title={`Check out this article by *${author}*: \n*${title.toUpperCase()}* \n`}
+        url={`https://blog.tonnipaul.com/${url}`}
+        aria-label="facebook"
+      >
+        <FacebookIcon round size={32} />
+      </FacebookShareButton>
 
-        <WhatsappShareButton
-          title={`Check out this article by *${author}*: \n*${title.toUpperCase()}* \n`}
-          url={`https://blog.tonnipaul.com/${url}`}
-          aria-label="whatsapp"
-        >
-          <WhatsappIcon size={32} round />
-        </WhatsappShareButton>
+      <TwitterShareButton
+        hashtags={["tonnipaul", "tonnipaulblog", "webdevelopment"]}
+        title={shareTitle}
+        url={shareURL}
+        aria-label="twitter"
+      >
+        <TwitterIcon size={32} round />
+      </TwitterShareButton>
 
-        <LinkedinShareButton
-          title={`Check out this article by *${author}*: \n*${title.toUpperCase()}* \n`}
-          url={`https://blog.tonnipaul.com/${url}`}
-          aria-label="linkedin"
-        >
-          <LinkedinIcon size={32} round />
-        </LinkedinShareButton>
+      <WhatsappShareButton
+        title={shareTitle}
+        url={shareURL}
+        aria-label="whatsapp"
+      >
+        <WhatsappIcon size={32} round />
+      </WhatsappShareButton>
 
-        <EmailShareButton
-          url={url}
-          subject={`TonniPaul Blog - ${title}`}
-          body={emailBody}
-          aria-label="email"
-        >
-          <EmailIcon size={32} round />
-        </EmailShareButton>
+      <LinkedinShareButton
+        title={shareTitle}
+        url={shareURL}
+        aria-label="linkedin"
+      >
+        <LinkedinIcon size={32} round />
+      </LinkedinShareButton>
 
-        <TelegramShareButton url={url} title={title} aria-label="telegram">
-          <TelegramIcon size={32} round />
-        </TelegramShareButton>
+      <EmailShareButton
+        url={shareURL}
+        subject={`TonniPaul Blog - ${title}`}
+        body={emailBody}
+        aria-label="email"
+      >
+        <EmailIcon size={32} round />
+      </EmailShareButton>
 
-        <PinterestShareButton
-          title={`Check out this article by *${author}*: \n*${title.toUpperCase()}* \n`}
-          description={description}
-          url={`https://blog.tonnipaul.com/${url}`}
-          media={media}
-          aria-label="pinterest"
-        >
-          <PinterestIcon round size={32} />
-        </PinterestShareButton>
+      <TelegramShareButton
+        url={shareURL}
+        title={shareTitle}
+        aria-label="telegram"
+      >
+        <TelegramIcon size={32} round />
+      </TelegramShareButton>
 
-        <RedditShareButton
-          title={`Check out this article by *${author}*: \n*${title.toUpperCase()}* \n`}
-          url={`https://blog.tonnipaul.com/${url}`}
-          aria-label="reddit"
-        >
-          <RedditIcon size={32} round />
-        </RedditShareButton>
+      <PinterestShareButton
+        title={shareTitle}
+        description={description}
+        url={shareURL}
+        media={media}
+        aria-label="pinterest"
+      >
+        <PinterestIcon round size={32} />
+      </PinterestShareButton>
 
-        <LivejournalShareButton
-          url={url}
-          title={`Check out this article by *${author}*: \n*${title.toUpperCase()}* \n`}
-          description={description}
-          aria-label="livejournal"
-        >
-          <LivejournalIcon size={32} round />
-        </LivejournalShareButton>
-      </div>
-    </SocialContainer>
-  );
+      <RedditShareButton title={shareTitle} url={shareURL} aria-label="reddit">
+        <RedditIcon size={32} round />
+      </RedditShareButton>
+
+      <LivejournalShareButton
+        title={shareTitle}
+        url={shareURL}
+        description={description}
+        aria-label="livejournal"
+      >
+        <LivejournalIcon size={32} round />
+      </LivejournalShareButton>
+    </div>
+  </SocialContainer>
+);
 };
 
 export default ShareToSocialMedia;
