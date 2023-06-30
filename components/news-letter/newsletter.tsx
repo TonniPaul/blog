@@ -10,6 +10,8 @@ import {
 import { useForm, Resolver, FieldErrors } from "react-hook-form";
 import { ErrorText, RelativeContainer } from "../commentForm/commentForm.style";
 
+import Confetti from "react-confetti";
+
 interface NewsletterProps {
   name: string;
   email: string;
@@ -68,7 +70,7 @@ const NewsLetter = () => {
       ]);
       reset();
       setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 5000);
+      // setTimeout(() => setSubmitted(false), 5000);
     } catch (err) {
       console.error(err);
     }
@@ -79,9 +81,10 @@ const NewsLetter = () => {
   return (
     <NewsletterContainer>
       {submitted ? (
-        <div>
+        <>
+          <Confetti />
           <p>Thank you for subscribing!</p>
-        </div>
+        </>
       ) : (
         <>
           <NewsletterImageContainer>
