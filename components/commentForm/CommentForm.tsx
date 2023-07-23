@@ -78,7 +78,7 @@ const CommentForm = ({ _id }: any) => {
       setIsSubmitting(false);
       setHasSubmitted(true);
       reset();
-      // setTimeout(() => setHasSubmitted(false), 2000);
+      setTimeout(() => setHasSubmitted(false), 2000);
     } catch (err) {
       console.error(err);
     }
