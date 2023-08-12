@@ -32,7 +32,7 @@ export async function getPost(slug: string): Promise<Posts> {
       author,
       post,
       summary,
-      'comments': *[_type == "comment" && post._ref == ^._id && approved == true]{
+      'comments': *[_type == "comment" && post._ref == ^._id] | order(_createdAt desc){
             _id, 
             name, 
             email, 

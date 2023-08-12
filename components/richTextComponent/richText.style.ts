@@ -11,38 +11,39 @@ export const H1Style = styled.h4`
   font-weight: 700;
   font-size: 1.4rem;
   padding-bottom: 0.5rem;
-  color: var(--yellow);
+  color: var(--purple);
 `;
 
 export const P = styled.p`
   padding-bottom: 0.5rem;
+  line-height: 1.5rem;
 `;
 
 export const H2Style = styled.h4`
   font-weight: 700;
   font-size: 1.3rem;
   padding-bottom: 0.5rem;
-  color: var(--yellow);
+  color: var(--purple);
 `;
 export const H3Style = styled.h4`
   font-weight: 700;
   font-size: 1.2rem;
   padding-bottom: 0.5rem;
-  color: var(--yellow);
+  color: var(--purple);
 `;
 
 export const H4Style = styled.h4`
   font-weight: 700;
   font-size: 1.1rem;
   padding-bottom: 0.5rem;
-  color: var(--yellow);
+  color: var(--purple);
 `;
 
 export const H5Style = styled.h4`
   font-weight: 700;
   font-size: 1rem;
   padding-bottom: 0.5rem;
-  color: var(--yellow);
+  color: var(--purple);
 `;
 
 export const H6Style = styled.h4`
@@ -58,6 +59,7 @@ export const BlockQuote = styled.blockquote`
   padding: 1rem;
   margin: 1rem;
   font-style: italic;
+    line-height: 1.5rem;
 `;
 
 export const ULStyle = styled.ul`
@@ -66,6 +68,8 @@ export const ULStyle = styled.ul`
 
   & li {
     padding-bottom: 0.5rem;
+      line-height: 1.5rem;
+
   }
 `;
 
@@ -74,11 +78,14 @@ export const OLStyle = styled.ol`
 
   & li {
     padding: 0.5rem 0;
+      line-height: 1.5rem;
+
   }
 `;
 
 export const CodeStyle = styled.code`
   background: var(--white);
+  padding: 0.2rem;
 `;
 
 export const RichTextLinks = styled.a`
