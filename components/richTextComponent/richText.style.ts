@@ -5,6 +5,13 @@ export const RichTextImageContainer = styled.div`
   margin: 1rem auto 0.5rem;
   position: relative;
   aspect-ratio: 4/4;
+  max-width: 100%;
+  width: 400px;
+  height: 400px;
+
+  & > img {
+    object-fit: cover;
+  }
 `;
 
 export const H1Style = styled.h4`
@@ -50,7 +57,7 @@ export const H6Style = styled.h4`
   font-weight: 700;
   font-size: 0.9375rem;
   padding-bottom: 0.5rem;
-  color: var(--yellow);
+  color: var(--purple);
 `;
 
 export const BlockQuote = styled.blockquote`
