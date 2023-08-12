@@ -46,6 +46,10 @@ export const BlogImageContainer = styled.div`
   height: 250px;
   margin: 1rem 0;
 
+  & > img {
+    object-fit: contain;
+  }
+
   @media (min-width: 768px) {
     height: 400px;
   }
