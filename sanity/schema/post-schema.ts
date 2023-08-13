@@ -43,7 +43,7 @@ const project = {
         dateFormat: "MMMM D, YYYY",
         calendarTodayLabel: "Today",
       },
-      initialValue: "2023-06-01",
+      initialValue: (new Date()).toISOString().split('T')[0],
       validation: (Rule: any) => Rule.required(),
     },
     {
