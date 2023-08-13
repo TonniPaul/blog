@@ -132,7 +132,7 @@ const CommentForm = ({ _id }: any) => {
         </RelativeContainer>
 
         <button
-          disabled={(errors.comment || errors.email || errors.name) != null}
+          disabled={isSubmitting}
         >
           {buttonText} {hasSubmitted && <span>&#9989;</span>}
         </button>
