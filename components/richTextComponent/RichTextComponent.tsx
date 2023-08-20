@@ -33,9 +33,9 @@ export const RichTextComponents = {
           <Image
             src={urlFor(value).url()}
             alt="Blog Post Image"
-            width={isInline ? 200 : undefined}
-            height={isInline ? 200 : undefined}
-            fill={isInline ? false : true}
+            width={isInline && 200}
+            height={isInline && 200}
+            fill={!isInline}
           />
         </RichTextImageContainer>
       );
@@ -81,7 +81,7 @@ export const RichTextComponents = {
 
       return (
         <RichTextLinks>
-          <Link href={value.href} rel={rel}>
+          <Link href={value.href} rel={rel} passHref>
             {children}
           </Link>
         </RichTextLinks>

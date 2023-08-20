@@ -4,13 +4,12 @@ export const RichTextImageContainer = styled.div`
   width: 90%;
   margin: 1rem auto 0.5rem;
   position: relative;
-  aspect-ratio: 4/4;
+  min-width: 19rem;
   max-width: 100%;
-  width: 400px;
-  height: 400px;
+  min-height: 400px;
 
   & > img {
-    object-fit: cover;
+    object-fit: contain;
   }
 `;
 
@@ -65,8 +64,7 @@ export const BlockQuote = styled.blockquote`
   border-left: 2px solid var(--yellow);
   padding: 1rem;
   margin: 1rem;
-  font-style: italic;
-    line-height: 1.5rem;
+  line-height: 1.5rem;
 `;
 
 export const ULStyle = styled.ul`
@@ -91,7 +89,9 @@ export const OLStyle = styled.ol`
 `;
 
 export const CodeStyle = styled.code`
-  background: var(--white);
+  background: rgb(0, 0, 0, 0.1);
+  color: var(--purple);
+  font-weight: 600;
   padding: 0.2rem;
 `;
 
