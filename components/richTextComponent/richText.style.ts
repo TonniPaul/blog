@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "styled-components";
 
 export const RichTextImageContainer = styled.div`
@@ -95,7 +96,7 @@ export const CodeStyle = styled.code`
   padding: 0.2rem;
 `;
 
-export const RichTextLinks = styled.a`
+export const RichTextLinks = styled(Link)`
   text-decoration: underline;
   text-decoration-color: var(--purple);
 `;
