@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import {
   BlockQuote,
   CodeStyle,
@@ -27,7 +26,6 @@ function urlFor(source: string) {
 export const RichTextComponents = {
   types: {
     image: ({ value, isInline }: any) => {
-      const imageUrl = value?.url;
       return (
         <RichTextImageContainer>
           <Image
@@ -80,10 +78,8 @@ export const RichTextComponents = {
       const rel = !value.href.startsWith("/") ? "noreferrer" : undefined;
 
       return (
-        <RichTextLinks>
-          <Link href={value.href} rel={rel} passHref>
-            {children}
-          </Link>
+        <RichTextLinks href={value.href} rel={rel} passHref>
+          {children}
         </RichTextLinks>
       );
     },
