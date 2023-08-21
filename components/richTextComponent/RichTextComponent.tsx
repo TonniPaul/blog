@@ -75,10 +75,8 @@ export const RichTextComponents = {
   },
   marks: {
     link: ({ children, value }: any) => {
-      const rel = !value.href.startsWith("/") ? "noreferrer" : undefined;
-
       return (
-        <RichTextLinks href={value.href} rel={rel} passHref>
+        <RichTextLinks href={value.href} passHref>
           {children}
         </RichTextLinks>
       );
