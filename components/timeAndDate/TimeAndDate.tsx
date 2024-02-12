@@ -6,6 +6,10 @@ const roboto_mono = Cousine({ subsets: ["latin"], weight: "400" });
 
 const TimeAndDate = () => {
   const [currentTime, setCurrentTime] = useState<Date>(new Date());
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true)
+  })
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -44,11 +48,14 @@ const TimeAndDate = () => {
   });
 
   return (
-    <TimeContainer className={roboto_mono.className}>
-      <p>{formattedDate}</p>
-      <p>{formattedTime}</p>
-      <p>{greeting}</p>
-    </TimeContainer>
+    <>
+      {isClient &&
+        <TimeContainer className={roboto_mono.className}>
+          <p>{formattedDate}</p>
+          <p>{formattedTime}</p>
+          <p>{greeting}</p>
+        </TimeContainer>}
+    </>
   );
 };
 
