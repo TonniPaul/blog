@@ -1,6 +1,5 @@
+import { client } from "@/sanity/config/client.config";
 import { NextApiRequest, NextApiResponse } from "next";
-import { createClient } from "@sanity/client";
-import clientConfig from "@/sanity/config/client.config";
 
 export default async function createMailList(
   req: NextApiRequest,
@@ -8,14 +7,16 @@ export default async function createMailList(
 ) {
   const { name, email } = JSON.parse(req.body);
 
-  const client = createClient(clientConfig);
 
   try {
-    await client.create({
-      _type: "newsletter",
-      name,
-      email,
-    });
+    if (client) {
+
+      await client.create({
+        _type: "newsletter",
+        name,
+        email,
+      });
+    }
 
     return res.status(200).json({ message: "submitted" });
   } catch (err) {
