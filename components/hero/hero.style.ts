@@ -11,7 +11,7 @@ export const HeroContainer = styled.section`
 export const TransparentBg = styled.div`
   background: var(--transparent-purple-bg);
   width: max-content;
-  padding: 0.5rem 1rem;
+  padding: 1rem 2rem;
   margin: 1rem auto;
 `;
 
@@ -26,11 +26,11 @@ export const ClipArt = styled.div`
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
 
   @media (min-width: 768px) {
-    font-size: 30px;
+    font-size: 3rem;
   }
 `;
 

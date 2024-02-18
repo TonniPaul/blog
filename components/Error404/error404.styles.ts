@@ -12,13 +12,13 @@ export const ErrorMainContainer = styled.section`
   }
 
   & > h1 {
-    font-size: 60px;
-    margin: -20px auto 5px;
+    font-size: 6rem;
+    margin: -2rem auto 5px;
   }
 
   & > p {
     font-size: 1rem;
-    max-width: 600px;
+    max-width: 60rem;
     margin: auto;
     padding-bottom: 2rem;
   }
@@ -26,7 +26,7 @@ export const ErrorMainContainer = styled.section`
   & > a {
     border: none;
     background: var(--purple);
-    padding: 0.5rem 3rem;
+    padding: 1rem 3rem;
     font-size: 1rem;
     border-radius: 5px;
     color: var(--white);

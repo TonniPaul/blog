@@ -1,5 +1,20 @@
 import Link from "next/link";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+const headerStyle = css`
+  margin-bottom: 1rem;
+  color: var(--purple);
+`
+
+const listStyle = css`
+  list-style-position: inside;
+
+  & li {
+    padding-bottom: 1rem;
+    line-height: 1.5;
+
+  }
+`
 
 export const RichTextImageContainer = styled.div`
   width: 90%;
@@ -7,7 +22,7 @@ export const RichTextImageContainer = styled.div`
   position: relative;
   min-width: 19rem;
   max-width: 100%;
-  min-height: 400px;
+  min-height: 40rem;
 
   & > img {
     object-fit: contain;
@@ -15,49 +30,31 @@ export const RichTextImageContainer = styled.div`
 `;
 
 export const H1Style = styled.h4`
-  font-weight: 700;
-  font-size: 1.4rem;
-  padding-bottom: 0.5rem;
-  color: var(--purple);
+  ${headerStyle}
 `;
 
 export const P = styled.p`
   padding-bottom: 0.5rem;
-  line-height: 1.5rem;
+  line-height: 1.5;
 `;
 
 export const H2Style = styled.h4`
-  font-weight: 700;
-  font-size: 1.3rem;
-  padding-bottom: 0.5rem;
-  color: var(--purple);
+  ${headerStyle}
 `;
 export const H3Style = styled.h4`
-  font-weight: 700;
-  font-size: 1.2rem;
-  padding-bottom: 0.5rem;
-  color: var(--purple);
+  ${headerStyle}
 `;
 
 export const H4Style = styled.h4`
-  font-weight: 700;
-  font-size: 1.1rem;
-  padding-bottom: 0.5rem;
-  color: var(--purple);
+  ${headerStyle}
 `;
 
 export const H5Style = styled.h4`
-  font-weight: 700;
-  font-size: 1rem;
-  padding-bottom: 0.5rem;
-  color: var(--purple);
+  ${headerStyle}
 `;
 
 export const H6Style = styled.h4`
-  font-weight: 700;
-  font-size: 0.9375rem;
-  padding-bottom: 0.5rem;
-  color: var(--purple);
+  ${headerStyle}
 `;
 
 export const BlockQuote = styled.blockquote`
@@ -65,35 +62,23 @@ export const BlockQuote = styled.blockquote`
   border-left: 2px solid var(--yellow);
   padding: 1rem;
   margin: 1rem;
-  line-height: 1.5rem;
+  line-height: 1.5;
 `;
 
 export const ULStyle = styled.ul`
+  ${listStyle}
   list-style-type: square;
-  list-style-position: inside;
-
-  & li {
-    padding-bottom: 0.5rem;
-      line-height: 1.5rem;
-
-  }
 `;
 
 export const OLStyle = styled.ol`
-  list-style-position: inside;
-
-  & li {
-    padding: 0.5rem 0;
-      line-height: 1.5rem;
-
-  }
+  ${listStyle}
 `;
 
 export const CodeStyle = styled.code`
   background: rgb(0, 0, 0, 0.1);
   color: var(--purple);
   font-weight: 600;
-  padding: 0.2rem;
+  padding: 0.5rem;
 `;
 
 export const RichTextLinks = styled(Link)`

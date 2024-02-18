@@ -2,6 +2,19 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 
+  html {
+	box-sizing: border-box;
+	/* 1rem = 10px */
+	font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
   :root {
    --primary-bg: #e0e0e0;
    --purple: #7d44a8;
@@ -22,35 +35,26 @@ const GlobalStyles = createGlobalStyle`
    --max-width : 1200px;
 }
 
-*, *::after, *::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  max-width: 100%;
-  appearance: none;
-  -webkit-appearance: none;
-}
-
 body {
-background: var(--primary-bg);
-font-size: 0.875rem;
-color: var(--black);
-
+	font-size: 1.5rem;
+	font-weight: 400;
+	line-height: 1.5;
+  background: var(--primary-bg);
+  color: var(--black);
+	-webkit-font-smoothing: antialiased;
+  
   &::-webkit-scrollbar {
     width: 1px;
   }
-
+  
   &::-webkit-scrollbar-track {
     background: var(--black);
   }
-
+  
   &::-webkit-scrollbar-thumb {
     background: var(--yellow);
   }
-
-  @media (min-width : 768px) {
-    font-size: 1rem;
-  }
+  
 }
 
 a {
@@ -70,6 +74,18 @@ button {
 button:disabled {
   cursor: not-allowed !important;
   opacity: 0.5;
+}
+
+@media only screen and (max-width: 20em) {
+	html {
+		font-size: 50%;
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		scroll-behavior: smooth;
+	}
 }
 
 

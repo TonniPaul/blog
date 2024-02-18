@@ -6,13 +6,13 @@ export const NewsletterContainer = styled.div`
   position: relative;
   padding: 2rem;
   padding-top: 3rem;
-  width: 500px;
+  width: 50rem;
   border-radius: 7px;
 
   & > p {
     text-align: center;
     font-weight: 700;
-    font-size: 19.2px;
+    font-size: 1.9rem;
     text-transform: capitalize;
   }
 `;
@@ -22,7 +22,7 @@ export const NewsletterForm = styled.form`
   padding: 2rem 0;
 
   & > * {
-    border-radius: 7px;
+    border-radius: 8px;
   }
 
   & > button {
@@ -35,10 +35,10 @@ export const NewsletterForm = styled.form`
 `;
 
 export const NewsletterImageContainer = styled.div`
-  padding: 0.5rem;
+  padding: 1rem;
   position: absolute;
   left: 50%;
-  top: -35px;
+  top: -3.5rem;
   transform: translateX(-50%);
   border-color: var(--purple);
   border-width: 2px 0 0 0;
@@ -97,7 +97,7 @@ export const FormButton = styled.button`
   background: var(--purple);
   color: var(--white);
   width: max-content;
-  padding: 0.8rem 2rem;
+  padding: 1rem 2rem;
   float: right;
 `;
 

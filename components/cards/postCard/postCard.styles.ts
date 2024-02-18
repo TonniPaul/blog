@@ -48,19 +48,20 @@ export const PostCardImageContainer = styled.div`
   position: relative;
   align-self: center;
   order: 1;
+  background-color: rgb(214, 201, 214,0.5);
 
   @media (min-width: 768px) {
-    height: 220px;
-    width: 280px;
+    height: 22rem;
+    width: 28rem;
   }
 `;
 
 export const ProductCardTitle = styled.p`
   font-weight: 700;
   color: var(--yellow);
-  font-size: 18px;
+  font-size: 1.8rem;
   padding: 0.5rem 0;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   border-top: 1px solid var(--primary-bg);
 
   @media (min-width: 768px) {
@@ -81,7 +82,7 @@ export const ContinueReading = styled(Link)`
   float: right;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 1rem;
   background: var(--primary-bg);
   color: var(--purple);
   border-radius: 8px;

@@ -20,7 +20,7 @@ export const CommentFormStyle = styled.div`
 
   & form {
     & button {
-      padding: 0.7rem 2rem;
+      padding: 1rem 2rem;
       background: var(--purple);
       box-shadow: var(--purple-box-shadow);
       margin-top: 1rem;
