@@ -14,15 +14,8 @@ import {
   RichTextLinks,
   ULStyle,
 } from "./richText.style";
-import imageUrlBuilder from "@sanity/image-url";
-import clientConfig from "@/sanity/config/client.config";
 import { PortableTextComponents } from "@portabletext/react";
-
-const builder = imageUrlBuilder({ clientConfig });
-
-function urlFor(source: string) {
-  return builder.image(source);
-}
+import { imageSource } from "@/sanity/config/client.config";
 
 export const RichTextComponents: PortableTextComponents = {
   types: {
@@ -30,7 +23,7 @@ export const RichTextComponents: PortableTextComponents = {
       return (
         <RichTextImageContainer>
           <Image
-            src={urlFor(value).url()}
+            src={imageSource(value).url()}
             alt="Blog Post Image"
             fill
           />
