@@ -8,7 +8,8 @@ import { dateFormat } from "@/helpers/dateFormat";
 import getTimeAgoString from "@/helpers/time-difference";
 import { CommentInterface } from "@/interface/comment.interface";
 import { Posts } from "@/interface/postInterface";
-import { getPost, getPosts } from "@/sanity/sanity-utils";
+import { client } from "@/sanity/config/client.config";
+import { currentPath, postQuery } from "@/sanity/fetch";
 import {
   BlogBodyContainer,
   BlogImageContainer,
@@ -19,15 +20,16 @@ import {
   TitleText,
 } from "@/styles/blogPost.style";
 import { PortableText } from "@portabletext/react";
+import { GetStaticPaths, GetStaticProps } from "next";
 
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-interface Props {
-  params: { slug: string };
+interface IBlogPostPageProps {
+  post: Posts;
 }
 
-const BlogPost = ({ post }: { post: Posts }) => {
+const BlogPost = ({ post }: IBlogPostPageProps) => {
   const router = useRouter();
 
   return (
@@ -39,12 +41,15 @@ const BlogPost = ({ post }: { post: Posts }) => {
         <TitleText>
           <ClipArt>{post.title.toUpperCase()}</ClipArt>
         </TitleText>
+
         <PublishDetailsContainer>
           <p> {dateFormat(post.date_created)}</p>-<p>{post.author} </p>
         </PublishDetailsContainer>
+
         <BlogImageContainer>
           <Image src={post.image} alt={post.title} fill />
         </BlogImageContainer>
+
         <BlogBodyContainer>
           <PortableText value={post.post} components={RichTextComponents} />
         </BlogBodyContainer>
@@ -84,6 +89,7 @@ const BlogPost = ({ post }: { post: Posts }) => {
           <p>Leave a comment</p>
           <CommentForm _id={post._id} />
         </CommentContainer>
+
         <GoBackBtn onClick={() => router.back()}>
           <Image
             src={"/assets/back-icon.png"}
@@ -100,9 +106,34 @@ const BlogPost = ({ post }: { post: Posts }) => {
 
 export default BlogPost;
 
-export async function getServerSideProps({ params }: Props) {
-  const slug = params.slug;
-  const post: Posts = await getPost(slug);
+export const getStaticPaths: GetStaticPaths = async () => {
+  if (!client) {
+    return { paths: [], fallback: 'blocking' };
+  }
+
+  const paths: string[] = await client.fetch(currentPath);
+
+  return {
+    paths: paths.map((slug) => ({ params: { slug } })),
+    fallback: 'blocking',
+  };
+};
+
+
+export const getStaticProps: GetStaticProps<IBlogPostPageProps | { posts: null }> = async ({ params }) => {
+  if (!client) {
+    return {
+      props: {
+        post: null,
+      },
+    };
+  }
+
+  const slug = params?.slug;
+
+
+
+  const post = await client.fetch(postQuery, { slug });
 
   return {
     props: {
@@ -110,20 +141,3 @@ export async function getServerSideProps({ params }: Props) {
     },
   };
 }
-
-export const revalidate = 60;
-
-export const generateStaticParams = async () => {
-  // Retrieve all posts from the API
-  const posts = await getPosts();
-
-  // Extract the slugs from each post
-  const slugs = posts.map((post) => post.slug);
-
-  // Return an array of objects with the required `params` structure
-  return slugs.map((slug) => ({
-    params: {
-      slug: slug,
-    },
-  }));
-};

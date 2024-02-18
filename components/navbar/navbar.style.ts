@@ -55,7 +55,7 @@ export const NavStyle = styled.nav<NavLinkStyleProp>`
     }
 
     &::after {
-      left: 0vw;
+      left: 0;
       z-index: -1;
       border-top-right-radius: 20%;
     }
@@ -63,7 +63,7 @@ export const NavStyle = styled.nav<NavLinkStyleProp>`
       position: relative;
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 2rem;
       height: auto;
       width: auto;
       padding: 0;

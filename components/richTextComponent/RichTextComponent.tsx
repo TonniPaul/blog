@@ -14,74 +14,66 @@ import {
   RichTextLinks,
   ULStyle,
 } from "./richText.style";
-import imageUrlBuilder from "@sanity/image-url";
-import clientConfig from "@/sanity/config/client.config";
+import { PortableTextComponents } from "@portabletext/react";
+import { imageSource } from "@/sanity/config/client.config";
 
-const builder = imageUrlBuilder({ clientConfig });
-
-function urlFor(source: string) {
-  return builder.image(source);
-}
-
-export const RichTextComponents = {
+export const RichTextComponents: PortableTextComponents = {
   types: {
-    image: ({ value, isInline }: any) => {
+    image: ({ value }) => {
       return (
         <RichTextImageContainer>
           <Image
-            src={urlFor(value).url()}
+            src={imageSource(value).url()}
             alt="Blog Post Image"
-            width={isInline && 200}
-            height={isInline && 200}
-            fill={!isInline}
+            fill
           />
         </RichTextImageContainer>
       );
     },
   },
   list: {
-    bullet: ({ children }: any) => {
+    bullet: ({ children }) => {
       return <ULStyle> {children}</ULStyle>;
     },
-    number: ({ children }: any) => {
+    number: ({ children }) => {
       return <OLStyle> {children}</OLStyle>;
     },
   },
   block: {
-    h1: ({ children }: any) => {
+    h1: ({ children }) => {
       return <H1Style>{children}</H1Style>;
     },
-    h2: ({ children }: any) => {
+    h2: ({ children }) => {
       return <H2Style>{children}</H2Style>;
     },
-    h3: ({ children }: any) => {
+    h3: ({ children }) => {
       return <H3Style>{children}</H3Style>;
     },
-    h4: ({ children }: any) => {
+    h4: ({ children }) => {
       return <H4Style>{children}</H4Style>;
     },
-    h5: ({ children }: any) => {
+    h5: ({ children }) => {
       return <H5Style>{children}</H5Style>;
     },
-    h6: ({ children }: any) => {
+    h6: ({ children }) => {
       return <H6Style>{children}</H6Style>;
     },
-    blockquote: ({ children }: any) => {
+    blockquote: ({ children }) => {
       return <BlockQuote>{children}</BlockQuote>;
     },
-    normal: ({ children }: any) => {
+    normal: ({ children }) => {
       return <P>{children}</P>;
     },
   },
   marks: {
-    link: ({ children, value }: any) => {
+    link: ({ children, value }) => {
       return (
         <RichTextLinks href={value.href} passHref>
           {children}
         </RichTextLinks>
       );
     },
-    code: ({ children }: any) => {
+    code: ({ children }) => {
       return <CodeStyle>{children}</CodeStyle>;
     },
   },

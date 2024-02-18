@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
 import { TimeContainer } from "./time,style";
 import { Cousine } from "next/font/google";
+import ShowView from "../show-view/show-view";
 
 const roboto_mono = Cousine({ subsets: ["latin"], weight: "400" });
 
 const TimeAndDate = () => {
   const [currentTime, setCurrentTime] = useState<Date>(new Date());
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -44,11 +50,13 @@ const TimeAndDate = () => {
   });
 
   return (
-    <TimeContainer className={roboto_mono.className}>
-      <p>{formattedDate}</p>
-      <p>{formattedTime}</p>
-      <p>{greeting}</p>
-    </TimeContainer>
+    <ShowView when={isMounted}>
+        <TimeContainer className={roboto_mono.className}>
+          <p>{formattedDate}</p>
+          <p>{formattedTime}</p>
+          <p>{greeting}</p>
+      </TimeContainer>
+    </ShowView>
   );
 };
 
