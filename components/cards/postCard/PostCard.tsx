@@ -7,7 +7,6 @@ import {
   PostCardSummary,
   ProductCardTitle,
 } from "./postCard.styles";
-import Link from "next/link";
 
 interface PostCardProps {
   slug: string;

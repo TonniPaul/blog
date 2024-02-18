@@ -65,20 +65,20 @@ export const ProductCardTitle = styled.p`
   border-top: 1px solid var(--primary-bg);
 
   @media (min-width: 768px) {
-    font-size: 20px;
+    font-size: 2rem;
   }
 `;
 
 export const PostCardSummary = styled.p`
-  font-weight: 400 !important;
-  padding-top: 0 !important;
+  font-weight: 400;
+  padding-top: 0;
 `;
 
 export const ContinueReading = styled(Link)`
   font-style: italic;
   box-shadow: var(--box-shadow);
   margin: 1rem;
-  padding: 0.5rem 1rem;
+  padding: 1rem 2rem;
   float: right;
   display: flex;
   align-items: center;
