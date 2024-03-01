@@ -9,6 +9,7 @@ export const allPostsQuery = groq`*[_type == 'post' && !(_id in path("drafts.**"
 
 export const postQuery = groq`*[_type == 'post' && slug.current == $slug][0]{
 		...,
+      "slug" : slug.current,
       "image" : image.asset->url,
 		'comments': *[_type == "comment" && post._ref == ^._id] | order(_createdAt desc){
             _id, 
