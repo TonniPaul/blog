@@ -24,7 +24,7 @@ export const RichTextComponents: PortableTextComponents = {
         <RichTextImageContainer>
           <Image
             src={imageSource(value).url()}
-            alt="Blog Post Image"
+            alt="illustration image, refresh page if image is not loaded"
             fill
           />
         </RichTextImageContainer>
